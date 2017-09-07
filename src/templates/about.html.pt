@@ -1,0 +1,16 @@
+<metal:main use-macro="load: layout.html.pt">
+
+<div metal:fill-slot="content" ommit-tag="">
+    <h2>About</h2>
+
+<metal:content use-macro="load: about_xhr.html.pt" />
+
+    <a href="/about" class="mm-dialog">About</a>
+
+{% if debug %}
+${ debug }
+{% endif %}
+
+</div>
+
+</metal:main>

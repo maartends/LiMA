@@ -1,0 +1,14 @@
+<metal:main use-macro="load: ../ezinemanager.html.pt">
+        <!--! maar de css scope moet hier gelimit worden
+        <div data-dojo-type="dijit/layout/ContentPane" title="Ezine" href="/ezine/${ Ezine.type }/${ Ezine.name }.html"
+                        data-dojo-props="loadingMessage: 'Loading ezine'"></div>
+        -->
+    <div metal:fill-slot="content" id="center-pane" class="layout-pane ezine" style="height: 100%;">
+        <div id="center-pane-content" style="height: 100%;">
+
+        <metal:content tal:condition="exists:Auction" use-macro="load: rest-items.html.pt" />
+
+        </div>
+    </div><!-- center-pane -->v
+
+</metal:main>

@@ -1,0 +1,22 @@
+<metal:main use-macro="load: layout.html.pt">
+
+<div metal:fill-slot="leading_pane" ommit-tag="">
+    <metal:content use-macro="load: EzineManager/leading_pane.html.pt" />
+</div>
+
+<div metal:fill-slot="center_pane" ommit-tag="">
+
+    <div
+        class="centerPanel"
+        data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-props="region:'center'"
+        title="Ezine"
+        style="width: 100%; height: 100%;">
+
+            <metal:content define-slot="content" />
+
+    </div><!-- centerPanel -->
+
+</div>
+
+</metal:main>

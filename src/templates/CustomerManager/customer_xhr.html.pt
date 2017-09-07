@@ -1,0 +1,6 @@
+<h1>${customer.klant_voornaam} ${customer.klant_achternaam}</h1>
+    <table>
+      <tr tal:repeat="(k,v) customer.items()">
+        <td tal:content="k" style="font-weight: bold;">Column name</td><td tal:content="v">Value</td>
+      </tr>
+    </table>

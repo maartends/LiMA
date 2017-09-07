@@ -1,0 +1,86 @@
+<header>
+    <div id="app-header">
+        <ul class="">
+            <li>
+                <a href="/" class="txt" style="float: left;"><img src="${ request.static_url('lima:static/img/favicon.png') }" alt="Logo" title="home" /></a>
+                <h1 class="txt" title="LiMA: LiMA is MaliMedia's Application"><a href="/"> LiMA</a></h1>
+            </li>
+            <li>
+
+                <ul data-dojo-type="dijit/MenuBar" id="navMenu">
+
+                    <!-- File -->
+                    <li data-dojo-type="dijit/PopupMenuBarItem">
+                    <span>File</span>
+                        <div data-dojo-type="dijit/DropDownMenu" id="fileMenu">
+
+                            <!-- New -->
+                            <div data-dojo-type="dijit/PopupMenuItem" data-dojo-props="">
+                                <span>New</span>
+                                <ul data-dojo-type="dijit/Menu" id="file-NewMenu">
+                                    <li data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){mm_dialog_newEzineForm.show();}">Ezine...</li>
+                                    <li data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){mm_dialog_newAuctionForm.show();}">Auction...</li>
+                                </ul>
+                            </div>
+
+                        <div data-dojo-type="dijit/MenuSeparator"></div>
+                        <a href="/logout" title="Logout"
+                            data-dojo-type="dijit/MenuItem"
+                            data-dojo-id="mm_exit"
+                            data-dojo-props="onClick:function(){window.location.replace('/logout')}">Exit</a>
+
+                        </div>
+                    </li>
+
+                    <!-- Tools -->
+                    <li data-dojo-type="dijit/PopupMenuBarItem">
+                    <span>Tools</span>
+                        <div data-dojo-type="dijit/DropDownMenu" id="toolsMenu">
+
+                            <!-- Veilingen -->
+                            <div data-dojo-type="dijit/PopupMenuItem" data-dojo-props="">
+                                <span>Veilingen</span>
+                                <ul data-dojo-type="dijit/Menu" id="tools-VeilingenMenu">
+                                    <li title="Fetch CSV and update database" data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){update_veilingen_db();}">Update data...</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <!-- Help -->
+                    <li data-dojo-type="dijit/PopupMenuBarItem">
+                    <span>Help</span>
+                        <ul data-dojo-type="dijit/Menu" id="helpMenu">
+                            <li data-dojo-type="dijit/MenuItem" data-dojo-props=""><a href="/help" title="Help" class="mm_dialog">Help</a></li>
+                <!--
+                            <li data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){mm_clicked('/about');}">About</li>
+                -->
+                            <li data-dojo-type="dijit/MenuItem" data-dojo-props=""><a href="/about" title="About" class="mm_dialog">About</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </li>
+            <li id="middle-section" class="txt">
+            </li>
+
+        </ul>
+
+        <ul id="rightlinks">
+            <li class="txt">
+
+                    <ul>
+                        <li><a href="/logout">Logout</a></li>
+                        <li><a href="https://sourceforge.net/p/malimedialima/tickets/" target="_blank">File a bug</a></li>
+<!--!
+                        <li><a href="/settings">Settings</a></li>
+-->
+                    </ul>
+
+            </li>
+        </ul>
+
+    </div>
+</header>

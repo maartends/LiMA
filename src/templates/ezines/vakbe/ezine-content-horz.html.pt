@@ -1,0 +1,156 @@
+﻿<tal:block repeat="item [item for item in Ezine.ezine_items if item.type == 'content']">
+    <!-- begin horizontal content ${ item.customer.name } - ${ item.title } -->
+    <table class="content-item outer" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr class="one-title">
+          <td class="outer content-title">
+            <h2>
+              <a target="_blank" title="${ item.title }" name="${'#TOC' + str(repeat.item.number) }" id="${'#TOC' + str(repeat.item.number) }" >${ item.title }</a>
+            </h2>
+          </td>
+        </tr>
+        <tr class="two-content">
+          <td>
+              <!--!
+              <xsl:choose>
+              <xsl:when test="not(@full-image) or @full-image='false'">
+              -->
+            <table cellspacing="0" cellpadding="0" class="outer">
+              <tbody>
+                <tr>
+                  <td>
+                    <table cellspacing="0" cellpadding="0">
+                      <tbody>
+                        <tr>
+                          <td class="c1"></td>
+                          <td class="c2" width="367px">
+                            <table cellspacing="0" cellpadding="0" class="c2">
+                              <tbody>
+                                <tr>
+                                  <td align="left" valign="top">
+                                    ${ structure: item.text }
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                          <td class="c3"></td>
+                          <td align="right" valign="top" class="c4">
+                              <table cellspacing="0" cellpadding="0">
+
+                                  <tr>
+                                    <td width="180">
+                                        <a href="http://www.vakantie.be/pages/forward.aspx?RedirectPage=${ item.url|urlencode }" title="${ item.title }" target="_blank">
+                                          <img src="${ item.foto }" alt="${ item.title }" width="180" border="0" title="${ item.title }" style="margin-bottom: 10px; width:180px" />
+                                        </a>
+                                    </td>
+                                  </tr>
+
+                              </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table cellspacing="0" cellpadding="0" class="outer">
+                      <tbody>
+                        <tr>
+                          <td class="c1"></td>
+                          <td class="c2" style="height: 30px" width="367px">
+                          <!--! TODO: ${  item.380 - (foto[1]/@width - 167)" />px -->
+                            <strong class="content-subtitle">
+                              <a href="http://www.vakantie.be/pages/forward.aspx?RedirectPage=${ item.url|urlencode }" target="_blank" title="${ item.subtitle }">
+                                ${ item.subtitle }
+                              </a>
+                            </strong>
+                          </td>
+                          <td class="c3"></td>
+                          <td align="center" valign="bottom">
+                            <table class="content-price" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr>
+                                  <td align="center" valign="middle" class="c4a">
+                                    <a href="http://www.vakantie.be/pages/forward.aspx?RedirectPage=${ item.url|urlencode }" title="${ item.title }" target="_blank">
+                                      <img src="http://nieuwsbrief.vakantie.be/img/logos/${ item.customer.logo }" class="partner-logo" alt="Logo ${ item.customer.name }" border="0" style="display: block; margin: auto;" />
+                                    </a>
+                                  </td>
+                                  <td valign="bottom" class="c4b">
+                                    <table cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                        <tr>
+                                          <td align="center" valign="middle">
+                                            <a href="http://www.vakantie.be/pages/forward.aspx?RedirectPage=${ item.url|urlencode }"  target="_blank" title=${ personen }>
+                                              <span style="font-style:italic" tal:condition="item.preprijs" tal:content="item.preprijs" /><br />
+                                              <span class="price" tal:condition="item.prijs">&euro; ${ item.prijs }</span><br />
+                                              <span tal:condition="item.personen" tal:content="item.personen" />
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+    <!--! TODO
+              </xsl:when>
+
+
+              <xsl:when test="@full-image='true'">
+                  <table cellspacing="0" cellpadding="0">
+                      <xsl:for-each select="foto">
+                      <tr>
+                        <td>
+                            <a title="${ item.title }" rel="{../rel}" target="_blank">
+                              <xsl:attribute name="href" select="mm:format-url(../URL)" />
+                              <img src="{text()}" alt="${ item.title }" width="{@width}" border="0" title="${ item.title }" style="margin-bottom: 10px;" />
+                            </a>
+                        </td>
+                      </tr>
+                      </xsl:for-each>
+                  </table>
+              </xsl:when>
+              </xsl:choose>
+    -->
+          </td>
+        </tr>
+        <tr class="three-sub">
+          <td>
+            <table cellspacing="0" cellpadding="0" class="outer">
+              <tbody>
+                <tr>
+                  <td class="c1"></td>
+                  <td>
+                    <table cellspacing="0" cellpadding="0">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <a href="http://www.vakantie.be/pages/forward.aspx?RedirectPage=${ item.url|urlencode }" target="_blank">Voor meer info: ${ item.customer.name }</a>
+                          </td>
+                          <td align="right" style="width: 20px;">
+                            <a href="http://www.vakantie.be/pages/forward.aspx?RedirectPage=${ item.url|urlencode }" target="_blank"><img src="http://nieuwsbrief.vakantie.be/img/html/blt_groen.png" border="0" alt="arrow" /></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- end horizontal content ${ item.customer.name } - ${ item.title } -->
+</tal:block>

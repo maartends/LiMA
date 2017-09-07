@@ -1,0 +1,9 @@
+<h2>Info</h2>
+<ul>
+    <li>ID: ${ Ezine.id }</li>
+    <li>Type: ${ Ezine.type }</li>
+    <li>Naam: ${ Ezine.name }</li>
+    <li>Subject: ${ Ezine.subject }</li>
+    <li>Senddate: ${ Ezine.send_date }</li>
+    <li>Approx. Size (without images): ${ ezine_size }</li>
+</ul>

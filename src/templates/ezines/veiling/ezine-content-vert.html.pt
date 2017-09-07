@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="2.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mm="http://www.malimedia.be/xml">
+  <xsl:import href="mm-functions.xsl" />
+  <xsl:template name="ezine-content-vert">
+    <xsl:param name="C" />
+    <xsl:variable name="Oid" select="@Oid" />
+    <table class="content-item" cellspacing="0" cellpadding="0" style="width: 290px; height: 100%;">
+      <tbody>
+        <tr>
+          <td class="content-title">
+            <table>
+              <tr>
+                <td>
+                  <h2>
+                    <a rel="{rel}" target="_blank" title="{title}">
+                      <xsl:attribute name="href" select="URL" />
+                      <xsl:attribute name="name">TOC<xsl:number /></xsl:attribute>
+                      <xsl:attribute name="id">TOC<xsl:number /></xsl:attribute>
+                      <xsl:value-of select="title" />
+                    </a>
+                  </h2>
+                </td>
+                <td>
+                  <img height="40px" width="40px" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <hr />
+        <tr>
+          <td valign="middle" align="center" style="width: 200px">
+            <a title="{title}" rel="{rel}" target="_blank">
+              <xsl:attribute name="href" select="URL" />
+              <img src="{foto}" alt="{title}" width="200" border="0" title="{title}" style="width: 200px" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+            <td align="left" valign="top">
+                <p class="normal-price"><xsl:value-of select="preprijs/text()" />: <xsl:value-of select="prijs/text()" /></p>
+            </td>
+        </tr>
+        <tr style="height: 4px;">
+          <td />
+        </tr>
+        <tr>
+          <td style="height: 32px;">
+            <table cellspacing="0" cellpadding="0" style="width: 290px;">
+              <tbody>
+                <tr style="height: 32px;">
+
+                  <td align="center" style="width: 246px;">
+                    <xsl:call-template name="ezine-bid-box">
+                        <xsl:with-param name="context" select="'vert'" />
+                    </xsl:call-template>
+                  </td>
+                  <td valign="middle" align="left" />
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </xsl:template>
+</xsl:stylesheet>

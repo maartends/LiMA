@@ -1,0 +1,226 @@
+<form data-dojo-type="dijit/form/Form" class="manual-form"
+      tal:define="action '/'.join( ('/rest/BiedmeeEzine', str(Ezine.cid)) ) if c_data else '/rest/BiedmeeEzine/0';
+                  method 'PUT' if c_data else 'POST';
+                  fid '_'.join( ('EzineForm', str(Ezine.cid)) ) if c_data else 'newEzineForm'"
+      tal:attributes="method method;
+                      action action;
+                      id fid;
+                      data-dojo-id fid">
+
+    <script type="dojo/on" data-dojo-event="submit" data-dojo-args="evt">
+    require(["dojo/request/xhr", "dojo/dom", "dojo/dom-attr", "dojo/dom-construct", "dojo/query", "dojo/json", "dojo/on", "dojo/_base/array", "dojo/domReady!"],
+    function (xhr, dom, domAttr, domConst, query, JSON, on, array) {
+        evt.preventDefault();
+        dojo.style(dojo.byId('inProgress'), "display", "block");
+        var t = evt.target;
+        var w = dijit.byNode(t);
+        responseNode = query('.ajaxResponse', t)[0];
+        var method  = w.get('method');
+        var data    = w.get('value');
+        data.ezine_items_auctions = [];
+        console.log(data);
+        ezine_items_array = query('#AuctDnDTarget li');
+        array.forEach(ezine_items_array, function(item) {
+            //~ data.ezine_items_auctions = {};
+            var cid = domAttr.get(item, "data-cid");
+            data.ezine_items_auctions.push(cid);
+        });
+        data.send_date = dojo.date.stamp.toISOString(data.send_date);
+        xhr(t.action, {
+            data: data,
+            method: method,
+            handleAs: "json"
+        })
+        .then(function (data) {
+            dojo.publish("testMessageTopic", [
+                {
+                    message: data + ' saved.',
+                    type: "message",
+                    duration: 4000
+                }
+            ]);
+            console.log(data);
+        }, function (err) {
+            domConst.place("<p>Failed! Error: " + err.response.data + "</p>", responseNode);
+            console.log(err);
+        });
+        dojo.style(dojo.byId('inProgress'), "display", "none");
+    });
+    </script>
+
+    <script type="text/javascript">
+        require(
+            [
+             "dojo/ready",
+             ],
+            function(ready) {
+                ready(function() {
+                    setEzineName = function(targetWidgetID, ezineDate) {
+                        //~ var ezineDate = dijit.byId('ezine_send_date').get('value');
+                        var weeknr = dojo.date.locale._getWeekOfYear(ezineDate);
+                        var parts = [
+                            'Biedmee',
+                            ezineDate.getFullYear(),
+                            'w' + weeknr
+                        ];
+                        var ezineName = parts.join('_') + '-x';
+                        dijit.byId(targetWidgetID).set("value", ezineName);
+                    };
+                });
+            });
+    </script>
+
+    <h2 tal:condition="not:c_data">Add New Ezine</h2>
+    <h2 tal:condition="c_data">Edit Ezine: ${Ezine.name}</h2>
+
+    <div class="dijitDialogPaneContentArea">
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="ezine_type">type:</label></th>
+                    <td>
+                        <select name="type" tal:attributes="id '_'.join( ('ezine_type', fid) )" required="true" data-dojo-type="dijit/form/Select">
+                            <option value="biedmee" selected="selected">Biedmee</option>
+                            <option value="vakbe" disabled="disabled">Vakbe</option>
+                        </select>
+                        <span class="fld-info">Voorlopig enkel Biedmee</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="ezine_send_date">send_date:</label></th>
+                    <td>
+                        <input type="date" name="send_date" required="true"
+                               tal:define="targetWidgetID '_'.join( ('ezine_name', fid) )"
+                               data-dojo-type="dijit/form/DateTextBox" constraints="{datePattern: 'yyyy-MM-dd', strict:true}"
+                               data-dojo-props="constraints:{datePattern: 'yyyy-MM-dd', strict:true}, onChange:function(){ setEzineName('${targetWidgetID}', this.value) }"
+                               tal:attributes="value Ezine.send_date if c_data else 'now';
+                                               id '_'.join( ('ezine_send_date', fid) )" />
+                        <span class="fld-info">Geplande verzenddatum, default vandaag</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="ezine_name">name:</label></th>
+                    <td><input type="text" name="name" required="true"
+                               tal:attributes="value python:Ezine.name if c_data else '';
+                                               id '_'.join( ('ezine_name', fid) )" data-dojo-type="dijit/form/ValidationTextBox" />
+                        <span class="fld-info">Naam: afhankelijk van verzenddatum, volgnr 'x' manueel in te vullen</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="ezine_subject">subject:</label></th>
+                    <td><input type="text" name="subject" required="true"
+                               tal:attributes="value python:Ezine.subject if c_data else 'Bied Mee: to do';
+                                               id '_'.join( ('ezine_subject', fid) )" data-dojo-type="dijit/form/ValidationTextBox" />
+                        <span class="fld-info">Subject</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="ezine_items">veilingen:</label></th>
+                    <td tal:define="ezine_auct_cids [item.auct_cid for item in Ezine.ezine_items] if c_data else []">
+
+                    <tal:block tal:condition="c_data">
+                        <div class="mm_dojoDndTarget" style="width: 350px; height: 150px; resize: both; overflow: auto;">
+                            <ul name="ezine_items_auctions" data-dojo-type="dojo/dnd/Source" data-dojo-id="AuctDnDTarget" id="AuctDnDTarget"
+                                data-dojo-props="copyOnly: false, " style="height: 100%"
+                                tal:define="action '/'.join( ('/rest/BiedmeeEzine', str(Ezine.cid), 'Auction') );">
+                                <script type="dojo/connect" event="onDrop" args="source, nodes, copy">
+                                    require(["dojo/request/xhr", "dojo/dom", "dojo/dom-construct", "dojo/query", "dojo/json", "dojo/on", "dojo/domReady!"],
+                                        function (xhr, dom, domConst, query, JSON, on) {
+                                            dojo.style(dojo.byId('inProgress'), "display", "block");
+                                            /*
+                                            console.log('received drop event:', source, nodes, copy);
+                                            var hidden = query('#ezine_items_UpdateForm_hidden')[0];
+                                            domConst.create('input', {type: 'hidden', name: 'ezine_items_auctions', value: nodes[0].id }, hidden);
+                                            var action = '${action}';
+                                            var data = 'some data'
+                                            xhr(action, {
+                                                data: data,
+                                                method: 'PUT',
+                                                handleAs: "json"
+                                            })
+                                            .then(function (data) {
+                                                dojo.publish("testMessageTopic", [
+                                                    {
+                                                        message: "Auction " + nodes[0].id + " added. Data received: " + data,
+                                                        type: "message",
+                                                        duration: 4000
+                                                    }
+                                                ]);
+                                            }, function (err) {
+                                                domConst.place("<p>Failed! Error: " + err.response.data + "</p>", responseNode);
+                                                console.log(err);
+                                            });
+                                            */
+                                            dojo.style(dojo.byId('inProgress'), "display", "none");
+                                        });
+                                </script>
+                                <li class="dojoDndItem" tal:repeat="item Ezine.ezine_items" data-cid="${item.auct_cid}" value="${item.auct_cid}" style="resize: none; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;">
+                                    <span title="${ item.title }" tal:content="item.__unicode__()">ID: title</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <span class="fld-info">Sleep veilingen van in de linkerkolom hierin</span>
+                        <div data-dojo-type="dojo/dnd/Source" class="mm_dojoDndTarget" style="width: 350px; height: 50px; resize: both; overflow: auto;">
+
+                        </div>
+                        <span class="fld-info">Vuilbak</span>
+                        <div id="ezine_items_UpdateForm_hidden"></div>
+                        <!--!
+                        <select type="hidden" name="ezine_items_auctions" id="ezine_items_UpdateForm" data-dojo-type="dijit/form/MultiSelect" style="display: none">
+                            <option tal:repeat="auction Auctions" value="${auction.cid}" tal:content="auction.title"
+                                    tal:attributes="selected 'selected' if auction.cid in ezine_auct_cids else None" />
+                        </select>
+                        -->
+
+                    </tal:block>
+
+                    <tal:block tal:condition="not:c_data">
+                        <select name="ezine_items_auctions" tal:attributes="id '_'.join( ('ezine_items', fid) )" required="false" multiple="true" size="10" style="resize: vertical; overflow: auto; min-width: 350px;" data-dojo-type="dijit/form/MultiSelect" data-dojo-props="required: false">
+                            <option tal:condition="not:c_data" tal:repeat="auction Auctions" value="${auction.cid}" tal:content="auction.title" />
+                            <option tal:condition="c_data" tal:repeat="auction Auctions" value="${auction.cid}" tal:content="auction.title"
+                                    tal:attributes="selected 'selected' if auction.cid in ezine_auct_cids else None" />
+                        </select>
+                        <span class="fld-info">Veilingen aan dit ezine te koppelen: ctrl-klik om meerdere te selecteren of te deselecteren</span>
+                    </tal:block>
+
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+<!--! TODO: kan eventueel later terug toegevoegd worden om een ezine te saven en tegelijk te uploaden naar een bulkmail service
+                <tr>
+                    <th><label for="ezine_options">options:</label></th>
+                    <td>
+                        <label for="opt_toclang" title="Wordt ingewerkt" >Put in Clang
+                        <input type="checkbox" tal:attributes="id '_'.join( ('opt_toclang', fid) )" name="opt_toclang" disabled="true" data-dojo-type="dijit/form/CheckBox" /></label>
+                        <label for="opt_sendtest" title="Wordt ingewerkt" >Send test
+                        <input type="checkbox" tal:attributes="id '_'.join( ('opt_sendtest', fid) )" name="opt_sendtest" title="Wordt ingewerkt" disabled="true" data-dojo-type="dijit/form/CheckBox" /></label>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+-->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ajaxResponse"></div>
+
+    <div class="dijitDialogPaneActionBar">
+        <button data-dojo-type="dijit/form/Button" type="submit">Save</button>
+        <button tal:condition="not:c_data" data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){mm_dialog_newEzineForm.hide();}">Cancel</button>
+    </div>
+
+<script type="text/javascript" tal:condition="not:c_data">
+require(["dojo/ready", "dijit/registry", "dojo/parser"],
+function(ready, registry){
+    ready(function(){
+        var today = new Date();
+        setEzineName('ezine_name_newEzineForm', today);
+  });
+});
+</script>
+
+</form>

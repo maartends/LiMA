@@ -1,0 +1,109 @@
+<div data-dojo-type="dijit/layout/TabContainer"
+	data-dojo-props="region:'top'" style="width: 100%; height: 50%;">
+
+<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane"
+	data-dojo-props="selected:true," title="Search">
+
+<h2>Zoek klant</h2>
+
+<metal:content use-macro="load: ./customer-search.html.pt" /></div>
+<!-- centerPanelTop -->
+
+<div class="centerPanel" data-dojo-type="dijit/layout/ContentPane"
+	data-dojo-props="" title="Defaulters">
+
+	<div>
+		<h3>Wanbetalers</h3>
+		Datum hoogste bod is
+		<select onchange="update_defaulters_grid(this.value)" name="days_ago">
+			<option value="20">20</option>
+			<option value="19">19</option>
+			<option value="18">18</option>
+			<option value="17">17</option>
+			<option value="16">16</option>
+			<option value="15">15</option>
+			<option value="14">14</option>
+			<option value="13">13</option>
+			<option value="12">12</option>
+			<option value="11">11</option>
+			<option value="10" selected="selected">10</option>
+			<option value="9">9</option>
+			<option value="8">8</option>
+			<option value="7">7</option>
+			<option value="6">6</option>
+			<option value="5">5</option>
+			<option value="all">all</option>
+		</select> dagen geleden.
+	</div>
+
+<span data-dojo-type="dojo/data/ItemFileReadStore"
+	data-dojo-id="defaulters"
+	data-dojo-props="url:'/json_auctions/defaulters/10'"></span>
+<table id="defaulters_show_grid" name="customer_search_grid"
+	class="datagrid" style="height: 100%"
+	data-dojo-type="dojox/grid/DataGrid"
+	data-dojo-props="autoWidth: true,
+				                     selectable: true,
+				                     store: defaulters,
+				                     rowSelector: '10px',
+				                     loadingMessage: 'Loading grid...',
+				                     noDataMessage: 'No data available',
+				                     region:'center',
+				                     ">
+	<script type="dojo/on" data-dojo-event="rowclick" data-dojo-args="evt">viewRowData(evt);</script>
+	<thead>
+		<tr>
+			<th field="clang_id" width="65px"
+				formatter="mm_datagrid_formatters.formatRowPopup">clang_id</th>
+			<th field="klant_voornaam" width="100px">klant_voornaam</th>
+			<th field="klant_achternaam" width="100px">klant_achternaam</th>
+			<th field="klant_email" width="150px"
+				formatter="mm_datagrid_formatters.formatMailLink">klant_email</th>
+			<th field="klant_straat" width="150px">klant_straat</th>
+			<th field="klant_nummer" width="50px">klant_nummer</th>
+			<th field="klant_postcode" width="50px">klant_postcode</th>
+			<th field="klant_gemeente" width="150px">klant_gemeente</th>
+			<th field="klant_telefoon" width="90px">klant_telefoon</th>
+		</tr>
+	</thead>
+</table>
+</div>
+<!-- Defaulters tab -->
+
+</div>
+<!-- TabContainerTop -->
+
+<div data-dojo-type="dijit/layout/ContentPane"
+	data-dojo-props="region:'bottom'" style="width: 100%; height: 50%;">
+<!-- note: data-dojo-props removed
+    plugins:{menus:{rowMenu:'dataGridContextRowMenu', cellMenu:'dataGridContextCellMenu'}}, -->
+<table id="show_grid" name="customer_show_grid" class="datagrid"
+	style="height: 100%" data-dojo-id="show_grid"
+	data-dojo-type="dojox/grid/EnhancedGrid"
+	data-dojo-props="autoWidth: true,
+                         selectable: true,
+                         autoHeight: true,
+                         rowSelector: '10px',
+                         loadingMessage: 'Loading grid...',
+                         noDataMessage: 'No data...',
+                         region:'bottom',
+                         columnReordering: true,
+                     ">
+	<script type="dojo/on" data-dojo-event="rowdblclick"
+		data-dojo-args="evt">viewRowDataPopup(evt);</script>
+	<thead>
+		<tr>
+			<th field="ogm_code" width="145px">ogm_code</th>
+			<th field="veiling_titel" width="380px">veiling_titel</th>
+			<th field="hoogste_bod" width="40px">hoogste_bod</th>
+			<th field="administratiekost" width="40px">administratiekost</th>
+			<th field="datum_hoogste_bod" width="135px">datum_hoogste_bod</th>
+			<th field="betaal_datum" width="135px" editable="true">betaal_datum</th>
+			<th field="annulatie_datum" width="135px">annulatie_datum</th>
+			<th field="partner_titel" width="150px">partner_titel</th>
+		</tr>
+	</thead>
+</table>
+
+</div>
+<!-- TabContainerBottom -->

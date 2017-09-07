@@ -1,0 +1,27 @@
+<div data-dojo-id="mm_dialog_popup" data-dojo-type="dojox/widget/Dialog" data-dojo-props="sizeToViewport: true, viewportPadding: 30, showTitle: true" title="" href=""></div>
+
+<div id="mm_ajax_response_dialog" data-dojo-id="mm_ajax_response_dialog" data-dojo-type="dijit/Dialog" data-dojo-props="draggable: true" title="Delete Referrer">
+    <div class="ajaxResponse"></div>
+</div>
+
+<div data-dojo-id="mm_dialog_alert" data-dojo-type="dijit/Dialog" data-dojo-props="" title="" href="">
+<!--!
+<div class="dijitDialogPaneActionBar">
+    <button data-dojo-type="dijit/form/Button" type="submit" data-dojo-props="" id="mm_dialog_alert-ok">OK</button>
+    <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="" id="mm_dialog_alert-cancel">Cancel</button>
+</div>
+-->
+</div>
+
+<!-- New Ezine -->
+<div data-dojo-id="mm_dialog_newEzineForm" data-dojo-type="dijit/Dialog" data-dojo-props="" title="New Ezine..." style="display: none">
+    <metal:content use-macro="load: ../EzineManager/rest-ezine.html.pt" tal:define="c_data False" />
+</div>
+<!-- /New Ezine -->
+
+<!-- New Auction -->
+<div data-dojo-id="mm_dialog_newAuctionForm" data-dojo-type="dijit/Dialog" data-dojo-props="" title="New Auction..." style="display: none">
+    <metal:content use-macro="load: ../AuctionManager/rest-auction.html.pt" tal:define="c_data False" />
+</div>
+<!-- /New Auction -->
+

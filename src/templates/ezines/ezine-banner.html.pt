@@ -1,0 +1,24 @@
+<tal:block repeat="item [item for item in Ezine.ezine_items if item.type == 'banner']">
+    <!-- begin banner -->
+      <table class="content-item outer" cellspacing="0" cellpadding="0" style="font-family: Arial, Helvetica, sans-serif; background: #FFFFFF;">
+        <tbody>
+            <!--!
+            <tr>
+              <td class="outer content-title">
+                <h2>
+                  <a rel="" target="_blank" title="${ item.title }">${ item.title }</a>
+                </h2>
+              </td>
+            </tr>
+            -->
+          <tr>
+            <td style="font-size: 0px; font-family: Arial, Helvetica, sans-serif; line-height: 0px;">
+              <a title="${ item.title }" target="_blank" style="font-family: Arial, Helvetica, sans-serif;">
+                <img border="0" height="" alt="banner" width="600" style="" src="${ item.foto }" />
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <!-- end banner -->
+</tal:block>

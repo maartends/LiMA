@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type"     content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="nl-be" />
+    <title>Biedmee.be Ezine</title>
+    <meta name="Copyright"      content="Copyleft: Mali Media Group - Please contact the company if you would like to copy content or place an advertisement - info@malimedia.be" />
+    <meta name="author"         content="Biedmee.be | Redactie - redactie@biedmee.be" />
+    <meta name="description"    content="E-magazine van Biedmee.be boordevol tips voor trips" />
+    <meta name="subject"        content="${ Ezine.subject }" />
+    <meta name="keywords"       content="e-zine, nieuwsbrief, vakantie, mali media, mali media group, e-marketing, B2C" />
+    <meta name="generator"      content="LiMA - LiMA is Mali Media's Application" />
+    <meta name="ezine-name"     content="${ Ezine.name }" />
+    <meta name="ezine-mailer"   content="${ mailer }" />
+<!--
+    <link rel="stylesheet"      type="text/css" href="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/css/responsive.css" />
+-->
+    <style type="text/css" data-premailer="ignore">
+@media only screen and (max-width: 600px) {
+table [class="main"]{width:100%!important;padding-top:0;padding-bottom:0;margin:auto}
+table [class="table_column"]{width:100%!important;margin:auto!important;clear:both!important;padding-bottom:0}
+td [class="txt_one"]{padding-top:0!important;text-align:center!important;width:100%}
+td [class="hideBar"]{display:none!important}
+tr [class="hiderow"]{display:none!important}
+table[class="btn_margin"]{margin-right:30px!important}
+span [class="btm_links"]{display:block!important;width:100%!important;clear:left;text-align:center;padding-left:0!important;padding-right:0!important}
+}
+    </style>
+    <style type="text/css">
+img{max-width:100%;border:0!important;padding:0!important}
+.collapse{margin:0;padding:0}
+body{-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:none;width:100%!important;height:100%;background:#fff;margin:0;padding:0}
+table.body-wrap{width:100%}
+h1,h2,h3,h4,h5,h6,p,a,li,td{font-family:'Open Sans',sans-serif}
+h1,h2,h3,h4,h5,h6{line-height:1.1;margin-bottom:15px;color:#000}
+h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-size:60%;color:#6f6f6f;line-height:0;text-transform:none}
+h1{font-weight:200;font-size:44px}
+h2{font-weight:200;font-size:37px}
+h3{font-weight:500;font-size:27px}
+h4{font-weight:500;font-size:23px}
+h5{font-weight:900;font-size:17px}
+h6{font-weight:900;font-size:14px;text-transform:uppercase;color:#444}
+.collapse{margin:0!important}
+p,ul{margin-bottom:10px;font-weight:400;font-size:14px;line-height:1.6}
+.auction-item p{margin-bottom:0;margin-top:0;font-size:13px;line-height:1.3em}
+a{color:#5e9e0f;font-weight:700;text-decoration:none}
+span.price{font-size:22px;vertical-align:-5%}
+.container{display:block!important;max-width:600px!important;margin:auto!important;clear:both!important;padding-top:20px;padding-bottom:0}
+.clear{display:block;clear:both}
+    </style>
+</head>
+<body bgcolor="#d6ceca" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" style="background:#d6ceca;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td style="padding-top:25px; padding-bottom:25px;">
+        <table width="616" border="0" cellspacing="0" cellpadding="0" align="center" class="main">
+        <tr>
+          <td style="background:#ffffff; font:Arial, Helvetica, sans-serif" bgcolor="#ffffff"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td style="padding:8px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+<!-- header -->
+<tr>
+  <td style="padding-bottom:3px;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <!-- online version -->
+      <tr class="hiderow" tal:condition="mailer=='clang'"><!-- clang -->
+        <td style="font-size: 9px; line-height: 11px; font-family: Arial; color: #A0A0A4; text-align: right;">Voeg <a href="mailto:veilingen@biedmee.be" style="font-family: Arial, Helvetica, sans-serif; color: #5e9e0f !important; text-decoration: none;">veilingen@biedmee.be</a> toe aan je adressenlijst of merk ons aan als veilig zodat ons e-zine niet in je spam belandt.<br />
+        Indien u ons e-magazine niet goed kan lezen, klik dan <a href="{{viewurl}}" target="_blank" style="font-family: Arial, Helvetica, sans-serif; color: #5e9e0f !important; text-decoration: none;">hier</a> om de online versie te bekijken</td>
+      </tr>
+      <tr class="hiderow" tal:condition="mailer=='mailjet'"><!-- mailjet -->
+        <td style="font-size: 9px; line-height: 11px; font-family: Arial; color: #A0A0A4; text-align: right;">Voeg <a href="mailto:veilingen@biedmee.be" style="font-family: Arial, Helvetica, sans-serif; color: #5e9e0f !important; text-decoration: none;">veilingen@biedmee.be</a> toe aan je adressenlijst of merk ons aan als veilig zodat ons e-zine niet in je spam belandt.<br />
+        Deze mail werd verstuurd naar <a href="mailto:[[EMAIL_TO]]" style="font-family: Arial, Helvetica, sans-serif; color: #5e9e0f !important; text-decoration: none;">[[EMAIL_TO]]</a><br />
+        Indien u ons e-magazine niet goed kan lezen, klik dan <a href="[[PERMALINK]]" target="_blank" style="font-family: Arial, Helvetica, sans-serif; color: #5e9e0f !important; text-decoration: none;">hier</a> om de online versie te bekijken</td>
+      </tr>
+      <!-- /online version -->
+      <!-- headerimg -->
+      <tr>
+        <td style="padding-top:3px; padding-bottom:3px;">
+            <a tal:attributes="href templateFilters.append_utmcodes('http://biedmee.be', Ezine.name)" target="_blank">
+                <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/biedmee_ezine_header.jpg" border="0"  alt="banner" style="width:100%; display:block; border:0">
+            </a>
+        </td>
+      </tr>
+      <!-- /headerimg -->
+      <!-- date -->
+      <tr tal:condition="mailer=='clang'"><!-- clang -->
+        <td style="padding-right: 5px; font-family: Arial, Helvetica, sans-serif; text-align: right; width: 50%;">
+            <span style="font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #9c8c93; text-align: right; margin: 2px 0px;">{{currentdate format='%d/%m/%Y'}} | <a tal:attributes="href templateFilters.append_utmcodes('http://biedmee.be', Ezine.name)" title="BiedMee.be">BiedMee.be</a> | <em style="color: #5e9e0f !important;">Uw lidnummer: {{customer field='id'}}</em></span>
+        </td>
+      </tr>
+      <tr tal:condition="mailer=='mailjet'" style="display:none;"><!-- mailjet -->
+        <td style="padding-right: 5px; font-family: Arial, Helvetica, sans-serif; text-align: right; width: 50%;">
+            <span style="font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #9c8c93; text-align: right; margin: 2px 0px;"><a tal:attributes="href templateFilters.append_utmcodes('http://biedmee.be', Ezine.name)" title="BiedMee.be">BiedMee.be</a></span>
+        </td>
+      </tr>
+      <!-- /date -->
+    </table>
+  </td>
+</tr>
+<!-- /header -->
+
+<!-- begin content -->
+<metal:content use-macro="load: ezine-content.html.pt" />
+<!-- end content -->
+
+<!-- footer -->
+<metal:content use-macro="load: ezine-footer.html.pt" />
+<!-- /footer -->
+
+                  </table>
+                </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+</body>
+</html>

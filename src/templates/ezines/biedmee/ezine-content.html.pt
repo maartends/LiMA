@@ -1,0 +1,60 @@
+﻿<tal:block repeat="item [item for item in Ezine.ezine_items]">
+<!-- horizontal content ${ item.title } -->
+<tr>
+  <td style="padding-bottom:10px;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="auction-item">
+      <tr>
+        <td style="background:#efebe9; padding-left:10px; padding-right:10px; padding-top:10px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr><!-- title -->
+              <td style="color:#5e9e0f; border-bottom: 1px solid #545454; padding-bottom:5px;">
+                  <!-- <h2> -->
+                  <a tal:attributes="href templateFilters.append_utmcodes(item.auction.url, Ezine.name)"
+                     rel="${ ', '.join([tag.tag for tag in item.auction.reltags]) }"
+                     id="${'#TOC' + str(repeat.item.number) }"
+                     name="${'#TOC' + str(repeat.item.number) }"
+                     style="color:#5e9e0f; font-weight:bold; text-decoration:none; font-size:18px;"
+                     title="${ item.title }" tal:content="item.title" />
+                  <!-- </h2> -->
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-top:10px;">
+
+                <table width="62%" border="0" cellspacing="0" cellpadding="0" align="left" class="table_column"><!-- biedmee+text -->
+                  <tr class="hiderow"><!-- biedmee vanaf -->
+                    <td>
+                        <p style="font-size:13px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; color:#9d8c84; padding-bottom:8px;">Bied mee vanaf: &euro; ${ item.openprice }</p>
+                    </td>
+                  </tr>
+                  <tr class="hiderow"><!-- text -->
+                    <td align="left" valign="top" style="font-size:13px; text-indent:15px; color:#4c423d" tal:content="structure item.text" />
+                  </tr>
+                  <tr>
+                    <td align="left" valign="top" style="padding-top:10px;"></td>
+                  </tr>
+                </table>
+
+                <table width="32%" border="0" cellspacing="0" cellpadding="0" align="right" class="table_column"><!-- image -->
+                  <tr>
+                    <td style="text-align:center">
+                        <a tal:attributes="href templateFilters.append_utmcodes(item.auction.url, Ezine.name)"
+                           rel="${ ', '.join([tag.tag for tag in item.auction.reltags]) }"
+                           title="${ item.title }">
+                           <img src="${ item.image }" alt="${ item.title }" title="${ item.title }" width="100%" border="0" title="2 daagse citytrip naar Londen! (2 pers.)" style="margin-bottom: 10px; padding-right: 10px; width:100%; display:block; margin:auto" />
+                        </a>
+                    </td>
+                  </tr>
+                </table>
+
+<metal:content use-macro="load: ezine-bid-box.html.pt" />
+
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<!-- /horizontal content ${ item.title } -->
+</tal:block>

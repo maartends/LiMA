@@ -1,0 +1,14 @@
+<!-- Left Acc Container -->
+<div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="region:'leading', splitter:true, minSize:20"
+        style="width: 100px;" id="leftAccordion">
+
+    <!-- Search Acc -->
+    <div
+            id="leftColSearch" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'left', splitter: true, title:'Search'">
+        <p></p>
+    </div>
+
+</div><!-- Left Acc Cont -->
+

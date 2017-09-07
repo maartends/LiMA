@@ -1,0 +1,39 @@
+﻿<!--!
+<!-verticale blokken
+<xsl:template match="Content[@block='V']">
+    <xsl:variable name="Oid" select="@Oid" />
+<!-begin vertical content
+    <table class="outer" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr style="height: 100%; vertical-align: top;">
+            <td style="height: 100%; vertical-align: top;">
+<!-begin  vertical content left: <xsl:value-of select="document('../xml/relaties.xml')/Relaties/Relatie[@Oid=$Oid]/Name" /> - <xsl:value-of select="title" />
+
+<xsl:call-template name="ezine-content-vert">
+    <xsl:with-param name="C" select=".[1]"/>
+</xsl:call-template>
+
+<!-end vertical content left: <xsl:value-of select="document('../xml/relaties.xml')/Relaties/Relatie[@Oid=$Oid]/Name" /> - <xsl:value-of select="title" />
+            </td>
+            <td style="width: 20px;"></td>
+            <td style="height: 100%; vertical-align: top;">
+<!-begin  vertical content right: <xsl:value-of select="document('../xml/relaties.xml')/Relaties/Relatie[@Oid=$Oid]/Name" /> - <xsl:value-of select="title" />
+
+
+
+<!-end vertical content right: <xsl:value-of select="document('../xml/relaties.xml')/Relaties/Relatie[@Oid=$Oid]/Name" /> - <xsl:value-of select="title" />
+            </td>
+          </tr>
+          <tr style="height: 10px;">
+            <td colspan="3" style="height: 10px;"></td>
+          </tr>
+        </tbody>
+      </table>
+<!-end vertical content
+</xsl:template>
+-->
+<!--horizontale blokken -->
+
+<metal:content use-macro="load: ezine-content-horz.html.pt" />
+
+<!--end horizontale blokken -->

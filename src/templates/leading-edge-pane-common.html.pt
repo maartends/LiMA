@@ -1,0 +1,10 @@
+    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading', layoutPriority:1, splitter:'true'" style="width: 90px;" id="lepc">
+        <ol class="">
+            <li id="lepc_dashboard"><a href="/Dashboard/"><span></span>Dashboard</a></li>
+            <li id="lepc_ezinemanager"><a href="/EzineManager/"><span></span>Ezines</a></li>
+            <li id="lepc_auctionmanager"><a href="/AuctionManager/"><span></span>Auctions</a></li>
+            <li id="lepc_customermanager"><a href="#" disabled="true" onclick="alert('Wordt geupdatet')"><span></span>Customers</a></li>
+            <li id="lepc_ordermanager"><a href="#" disabled="true" onclick="alert('Wordt geupdatet')"><span></span>Orders</a></li>
+            <li id="lepc_templatemanager"><a href="#" disabled="true" onclick="alert('Wordt geupdatet')"><span></span>Templates</a></li>
+        </ol>
+    </div>

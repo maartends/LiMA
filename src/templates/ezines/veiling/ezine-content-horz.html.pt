@@ -1,0 +1,76 @@
+﻿<tal:block repeat="item [item for item in Ezine.ezine_items if item.type == 'content']">
+<!-- begin horizontal content ${ item.title } -->
+<table class="content-item outer horizontal" cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr class="one-title">
+      <td class="outer content-title">
+          <table>
+              <tr>
+                  <td width="600">
+                    <h2>
+                      <a tal:attributes="href templateFilters.append_utmcodes(item.url, Ezine.name)"
+                         id="${'#TOC' + str(repeat.item.number) }" name="${'#TOC' + str(repeat.item.number) }" rel="{rel}" target="_blank" title="${ item.title }" tal:content="item.title" />
+                    </h2>
+                  </td>
+                  <td></td>
+              </tr>
+          </table>
+        <hr />
+      </td>
+    </tr>
+    <tr class="two-content">
+      <td>
+        <table cellspacing="0" cellpadding="0" class="outer">
+          <tbody>
+            <tr>
+              <td>
+                <table cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td class="c1"></td>
+                      <td class="c2">
+                        <table cellspacing="0" cellpadding="0" class="c2">
+                          <tbody>
+                            <tr>
+                                <td align="left" valign="top">
+                                    <p class="normal-price">Bied mee vanaf: &euro; ${ item.prijs }</p>
+                                </td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="top" class="two-content" tal:content="structure item.text" />
+                            </tr>
+                            <tr>
+                                <td>
+
+<metal:content use-macro="load: ezine-bid-box.html.pt" />
+
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td class="c3"></td>
+                      <td align="right" valign="top" class="c4">
+                          <table cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>
+                                    <a title="${ item.title }" rel="" target="_blank">
+                                      <img src="${ item.foto }" alt="${ item.title }" width="180" border="0" title="${ item.title }" style="margin-bottom: 10px; padding-right: 10px;" />
+                                    </a>
+                                </td>
+                              </tr>
+                          </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- end horizontal content ${ item.title } -->
+</tal:block>

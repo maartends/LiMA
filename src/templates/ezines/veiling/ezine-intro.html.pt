@@ -1,0 +1,101 @@
+﻿      <table class="outer" cellspacing="0" cellpadding="0">
+        <tbody>
+          <tr>
+            <td height="14" style="font-family: Arial, Helvetica, sans-serif; height: 14px; width: 10px;"></td>
+            <td height="14" style="font-family: Arial, Helvetica, sans-serif; height: 14px; width: 280px;"></td>
+            <td height="14" style="font-family: Arial, Helvetica, sans-serif; height: 14px; width: 20px;"></td>
+            <td height="14" style="font-family: Arial, Helvetica, sans-serif; height: 14px; width: 290px; background: #efebe9;"></td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif;"></td>
+            <td height="22" align="left" valign="top" style="font-weight: bold; font-size: 11px; font-family: Arial; color: #4c423d; height: 22px;">Beste {{customer field='firstname' default='abonnee' uppercasefirst='yes'}},</td>
+            <td style="font-family: Arial, Helvetica, sans-serif;"></td>
+            <td align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; background: #efebe9;">
+              <table cellspacing="0" cellpadding="0" style="font-weight: bold; font-size: 14px; font-family: Arial; color: #4c423d;">
+                <tbody>
+                  <tr>
+                    <td style="font-family: Arial, Helvetica, sans-serif; width: 10px;"></td>
+                    <td align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif;">In deze editie ...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif;"></td>
+            <td class="edito" align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif;">
+            ${ structure: Ezine.edito_text }
+            <p><strong>Sanne, Vakantie.be</strong></p>
+            </td>
+            <td style="font-family: Arial, Helvetica, sans-serif;"></td>
+            <td align="left" valign="top" style="font-family: Arial, Helvetica, sans-serif; background: #efebe9;">
+              <table cellspacing="0" style="font-family: Arial, Helvetica, sans-serif;" cellpadding="0" width="99%">
+                <tbody>
+
+                <tal:block repeat="item [item for item in Ezine.ezine_items if item.type == 'content']">
+
+                  <tr valign="middle" style="font-family: Arial, Helvetica, sans-serif;">
+                    <td height="15" align="right" style="font-size: 0px; font-family: Arial, Helvetica, sans-serif; line-height: 0px; height: 15px; width: 20px;">
+                      <a href="${'#TOC' + str(repeat.item.number) }" style="font-family: Arial, Helvetica, sans-serif;" title="Spring naar deze titel">
+                        <img src="http://nieuwsbrief.vakantie.be/img/html/blt_menu.gif" border="0" alt="arrow" style="font-family: Arial, Helvetica, sans-serif; display: block;" />
+                      </a>
+                    </td>
+                    <td style="font-family: Arial, Helvetica, sans-serif; width: 5px;"></td>
+                    <td align="left" style="font-size: 11px; font-weight: bold; font-family: Arial;">
+                      <a href="${'#TOC' + str(repeat.item.number) }" style="font-family: Arial, Helvetica, sans-serif; text-decoration: none; color: #4c423d;" title="Spring naar deze titel">${ item.title }</a>
+                    </td>
+                  </tr>
+
+                </tal:block>
+
+                  <tr valign="middle" style="font-family: Arial, Helvetica, sans-serif;">
+                    <td height="18" align="right" style="font-size: 0px; font-family: Arial, Helvetica, sans-serif; line-height: 0px; height: 18px; width: 20px;">
+                      <a href="#TOC-A" style="font-family: Arial, Helvetica, sans-serif;">
+                        <img src="http://nieuwsbrief.vakantie.be/img/html/blt_menu.gif" border="0" alt="arrow" style="font-family: Arial, Helvetica, sans-serif; display: block;" />
+                      </a>
+                    </td>
+                    <td style="font-family: Arial, Helvetica, sans-serif; width: 5px;"></td>
+                    <td align="left" style="font-size: 11px; font-weight: bold; font-family: Arial;">
+                    <a href="#TOC-A" style="font-family: Arial, Helvetica, sans-serif; color: #4c423d; text-decoration: none;">Aanbiedingen</a></td>
+                  </tr>
+                  <!--
+                  <tr valign="middle" style="font-family: Arial, Helvetica, sans-serif;">
+                    <td height="18" align="right" style="font-size: 0px; font-family: Arial, Helvetica, sans-serif; line-height: 0px; height: 18px; width: 20px;">
+                      <a href="#TOC-M1" style="font-family: Arial, Helvetica, sans-serif;">
+                        <img src="http://nieuwsbrief.vakantie.be/img/html/blt_menu.gif" border="0" alt="arrow" style="font-family: Arial, Helvetica, sans-serif; display: block;" />
+                      </a>
+                    </td>
+                    <td style="font-family: Arial, Helvetica, sans-serif; width: 5px;"></td>
+                    <td align="left" style="font-size: 11px; font-weight: bold; font-family: Arial;">
+                      <a href="#TOC-M1" style="font-family: Arial, Helvetica, sans-serif; color: #4c423d; text-decoration: none;">Middletitle</a>
+                    </td>
+                 </tr>
+                 -->
+                  <tr>
+                    <td height="6" style="font-family: Arial, Helvetica, sans-serif; height: 6px; width: 20px;"></td>
+                    <td style="font-family: Arial, Helvetica, sans-serif; width: 5px;"></td>
+                    <td style="font-family: Arial, Helvetica, sans-serif; text-align: right;"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <xsl:if test="./edito/secondtext">
+            <tr>
+                <td style="font-family: Arial, Helvetica, sans-serif;"></td>
+                <td class="edito" align="left" valign="top" colspan="3" style="font-family: Arial, Helvetica, sans-serif;">
+                <xsl:value-of select="edito/secondtext" disable-output-escaping="yes" />
+                <p><strong>Sanne, Vakantie.be</strong></p>
+                </td>
+            </tr>
+          </xsl:if>
+          <tr>
+            <td height="15" style="font-family: Arial, Helvetica, sans-serif; height: 15px;"></td>
+            <td height="15" style="font-family: Arial, Helvetica, sans-serif; height: 15px;"></td>
+            <td height="15" style="font-family: Arial, Helvetica, sans-serif; height: 15px;"></td>
+            <td height="15" valign="top" style="font-size: 0px; font-family: Arial, Helvetica, sans-serif; line-height: 0px; height: 15px;">
+              <img src="http://nieuwsbrief.vakantie.be/img/html/bottom_menu.gif" border="0" alt="" style="font-family: Arial, Helvetica, sans-serif; display: block;" />
+            </td>
+          </tr>
+        </tbody>
+      </table>

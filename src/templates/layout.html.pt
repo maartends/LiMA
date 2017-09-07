@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="nl"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal">
+    <head>
+    <meta charset="utf-8" />
+    <title>LiMA: Lima is MaliMedia's Application</title>
+    <meta name="author"     content="see bottom..." />
+    <meta name="generator"  content="Pyramid 1.5 - http://www.pylonsproject.org/" />
+    <meta name="robots"     content="noindex, nofollow" />
+    <link rel="author"      href="${ request.static_url('lima:static/humans.txt') }" />
+    <link rel="shortcut icon" type="image/png" href="${ request.static_url('lima:static/img/favicon.png') }" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('lima:static/css/style.css') }" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('lima:static/css/main.css') }" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/css/adminbackends.css') }" />
+<!--!
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('lima:static/css/menu.css') }" />
+-->
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('lima:static/css/ui.css') }" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dojox/calendar/themes/nihilo/Calendar.css') }" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dojox/widget/Toaster/Toaster.css') }" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dojox/grid/resources/nihiloGrid.css') }" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dojox/widget/Dialog/Dialog.css') }" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dojox/widget/Dialog/Dialog.css') }" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dijit/themes/nihilo/nihilo.css') }" media="screen" />
+    <!-- load dojo and provide config -->
+    <script type="text/javascript">
+    dojoConfig={
+        baseUrl:"${ request.registry.settings['gen_static_location'] }",
+        isDebug:true,
+        async:  true,
+        locale: "nl",
+        packages: [
+            { name: "dojo",     location: "libs/js/dojo/1.8.3/dojo" },
+            { name: "dijit",    location: "libs/js/dojo/1.8.3/dijit" },
+            { name: "dojox",    location: "libs/js/dojo/1.8.3/dojox" },
+            { name: "dojomm",   location: "a/lima/js/ext/dojo" }
+        ],
+    };
+    </script>
+    <script type="text/javascript" src="${ request.static_url('gen:static/libs/js/dojo/1.8.3/dojo/dojo.js') }"></script>
+<!--!
+    <script type="text/javascript" src="${ request.static_url('gen:static/libs/js/jquery/jquery-1.8.3.min.js')}"></script>
+-->
+    <!--Load the Google AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    require(["dojo/dom", "dojo/ready", "dojo/parser", "dojo/dom-style", "dojo/_base/fx"],
+    function(dom, ready, parser, domStyle, fx){
+        ready(function(){
+            // parse
+            parser.parse();
+            // show preloader
+            setTimeout(function(){
+                var preloader = dom.byId("preloader");
+                fx.fadeOut({
+                    node: preloader,
+                    duration: 500,
+                    onEnd: function(){preloader.style.display = "none";}
+                }).play();
+            }, 500);
+        });
+    });
+    </script>
+    <script src="${ request.static_url('lima:static/js/lima.js') }" charset="UTF-8"></script>
+<style type="text/css">
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#appLayout {
+    height: 100%;
+}
+#leftCol {
+    width: 14em;
+}
+#preloader {
+  width:100%; height:100%; margin:0; padding:0;
+  background:#efefef
+    url("${ request.static_url('lima:static/img/MM_ajax_loader.gif') }")
+    no-repeat center center;
+    position:absolute;
+    z-index:999;
+}
+/* search form */
+.datagrid {
+    height: 40em;
+}
+.auctionChart {
+    width: 800px;
+    height: 300px;
+}
+#popshowgrid {
+    height: 20em;
+}
+.dojoxGrid .dojoxGridCell {
+    white-space:nowrap;
+}
+label {
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+}
+.dijitMenuItemLabel a {
+    text-decoration: none;
+    color: black;
+}
+.dijitMenuItemLabel:hover a {
+    color: white;
+}
+.nihilo .dijitSplitterV,
+.nihilo .dijitGutterV {
+    width:3px;
+}
+</style>
+
+    </head>
+
+<body class="backend nihilo" id="backend">
+    <!-- basic preloader: -->
+    <div id="preloader"><div id="loaderInner" style="direction:ltr;white-space:nowrap;overflow:visible;">Loading ... </div></div>
+
+    <!-- dialog div's -->
+    <div id="mm_popup_dialog" data-dojo-id="mm_popup_dialog" data-dojo-type="dijit/Dialog" title="" href="">
+<!--        <div class="dijitDialogPaneContentArea"></div>-->
+<!--        <div class="dijitDialogPaneActionBar">-->
+<!--            <button id="ABdialog1button1" data-dojo-type="dijit/form/Button" data-dojo-props='type:"submit" '>OK</button>-->
+<!--            <button id="ABdialog1button2" data-dojo-type="dijit/form/Button" data-dojo-props='type:"button", onClick:function(){ dijit.byId("mm_popup_dialog").onCancel(); }'>Cancel</button>-->
+<!--        </div>-->
+    </div>
+
+    <div id="mm_popup_griddialog" data-dojo-id="mm_popup_griddialog" data-dojo-type="dijit/Dialog" title="" href="">
+
+    </div>
+
+    <!-- context menu div's -->
+<!--    <div id="dataGridContextRowMenu" data-dojo-type="dijit/Menu" style="display: none;">-->
+<!--        <ul>-->
+<!--            <li data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){viewRowData(e);}">View row data</li>-->
+<!--            <li data-dojo-type="dijit/MenuItem" data-dojo-props="iconClass:'dijitIconCopy', onClick:function(){copyRowData();}">Copy row data</li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    <div id="dataGridContextCellMenu" data-dojo-type="dijit/Menu" style="display: none;">-->
+<!--        <ul>-->
+<!--            <li data-dojo-type="dijit/MenuItem" data-dojo-props="iconClass:'dijitIconCopy', onClick:function(){copyCellData();}">Copy cell data</li>-->
+<!--        </ul>-->
+<!--    </div>-->
+
+    <!-- toaster div -->
+    <div data-dojo-type="dojox/widget/Toaster"
+        data-dojo-props="positionDirection:'br-left', messageTopic:'testMessageTopic'"
+        data-dojo-id="first_toaster"
+        id="first_toaster"></div>
+
+    <!-- conditional div's -->
+    <div id="inProgress"><img src="${ request.static_url('lima:static/img/MM_ajax_loader.gif') }"> Working... </div>
+
+    <!-- data div's -->
+    <div data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="ezineStore" data-dojo-props="url:'/json/Ezine'"></div>
+    <div data-dojo-type="dijit/tree/ForestStoreModel" data-dojo-id="ezineModel"
+         data-dojo-props="store:ezineStore,
+                          rootId:'ezineRoot',
+                          rootLabel:'Ezines',
+                          childrenAttrs:['name']"></div>
+
+<metal:content use-macro="load: blocks/flash.html.pt" />
+
+<div
+    id="appLayout" class=""
+    data-dojo-type="dijit/layout/BorderContainer"
+    data-dojo-props="design: 'headline'"
+    style="">
+
+    <!-- Top Pane -->
+    <div
+        class="edgePanel"
+        id="dijit-app-header"
+        data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-props="region: 'top'">
+
+<metal:content use-macro="load: blocks/app-header.html.pt" />
+
+        </div>
+
+<!-- Leading Edge Pane -->
+<metal:content use-macro="load: leading-edge-pane-common.html.pt" />
+
+<div
+    id="" class=""
+    data-dojo-type="dijit/layout/BorderContainer"
+    data-dojo-props="design: 'sidebar', region:'center'"
+    style="">
+
+    <metal:content define-slot="leading_pane" />
+
+    <metal:content define-slot="center_pane" />
+
+</div><!-- center border container -->
+
+</div><!-- appLayout -->
+
+<!-- Dialog div's -->
+<metal:content use-macro="load: blocks/dialog-divs.html.pt" />
+
+</body>
+</html>
+
+<metal:content use-macro="load: meta/asciidev.html.pt" />

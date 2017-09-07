@@ -1,0 +1,9 @@
+<metal:main use-macro="load: ../ezinemanager.html.pt">
+
+    <div metal:fill-slot="content" id="center-pane" class="layout-pane ezine" style="">
+        <h2>Ezines</h2>
+        <p>Maak een nieuw ezine aan, of editeer een bestaand ezine.</p>
+        <metal:content use-macro="load: ./import-table.html.pt" />
+    </div><!-- center-pane -->
+
+</metal:main>

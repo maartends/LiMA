@@ -1,0 +1,394 @@
+<script>
+    require(["dijit/layout/TabContainer", "dojo/ready"], function(TabContainer, ready){
+        ready(function(){
+            if (location.hash) {
+                dijit.byId('center_tabcontainer').selectChild(dijit.byId(location.hash.replace('#', '')));
+            };
+        });
+    });
+</script>
+<script type="text/javascript">
+
+      // Load the Visualization API and the piechart package.
+      google.load('visualization', '1.0', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.setOnLoadCallback(drawAllCharts);
+
+    function drawYearChart() {
+        var jsonData = $.ajax({
+          url: "/json_auctions/charts/year?format=gdatatable",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+        // Create our data table out of JSON data loaded from server.
+        var data = new google.visualization.DataTable(jsonData);
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_year_n'));
+        chart.draw(data, {width: 400, height: 240, vAxis:{baseline:0} });
+    }
+
+    function drawMonthChart() {
+        var jsonData = $.ajax({
+          url: "/json_auctions/charts/month?format=gdatatable",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+        // Create our data table out of JSON data loaded from server.
+        var data = new google.visualization.DataTable(jsonData);
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_month_n'));
+        chart.draw(data, {width: 600, height: 240});
+    }
+
+    function drawWeekChart() {
+        var jsonData = $.ajax({
+          url: "/json_auctions/charts/week?format=gdatatable",
+          dataType:"json",
+          async: false
+          }).responseText;
+
+        // Create our data table out of JSON data loaded from server.
+        var data = new google.visualization.DataTable(jsonData);
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_week_n'));
+        chart.draw(data, {width: 800, height: 240});
+    }
+
+    function drawAllCharts() {
+        drawYearChart();
+        drawMonthChart();
+        drawWeekChart();
+    }
+</script>
+<div data-dojo-type="dijit/layout/TabContainer" id="center_tabcontainer"
+     data-dojo-props="region:'center'" class="centerPanel" style="width: 100%; height: 100%;">
+
+    <!-- all the dojo stores -->
+    <span data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="weekStore" data-dojo-props="url:'/json_auctions/charts/week'"></span>
+    <span data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="monthStore" data-dojo-props="url:'/json_auctions/charts/month'"></span>
+    <span data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="yearStore" data-dojo-props="url:'/json_auctions/charts/year'"></span>
+
+            <div data-dojo-type="dijit/layout/TabContainer" title="Charts" id="tab_charts"
+                    data-dojo-props="loadingMessage: 'Loading charts', nested: true">
+
+                <div data-dojo-type="dijit/layout/ContentPane" title="Numbers" class="chartTab"
+                    data-dojo-props="loadingMessage: 'Loading charts'">
+
+                    <div style="width:800px; float: left;">
+<!--!
+                        <button data-dojo-type="dijit/form/Button" type="button">Render charts
+                        <script type="dojo/on" data-dojo-event="click" data-dojo-args="evt">
+                            require(["dojo/NodeList-traverse", "dojo/query", "dojo/dom-construct"], function(query, domConstruct){
+                                parent = query(evt.target).parents('.chartTab');
+                                chartNodes = parent.query('.auctionChart');
+                                chartNames = new Array();
+                                chartNodes.forEach(function(node) {
+                                    chartNames.push(node.id);
+                                    node.empty;
+                                });
+                                renderCharts();
+                            });
+                        </script>
+                        </button>
+-->
+<!--
+
+                        <div data-dojo-type="dojomm/charting/DataChart" class="auctionChart" id="chart_week_n" title="n/week"
+                             data-dojo-props="store: weekStore,
+                                              xaxis: 'n',
+                                              yaxis: 'week'"></div>
+-->
+                        <div class="googleChart" id="chart_week_n"></div>
+                        <div class="googleChart" id="chart_month_n"></div>
+                        <div class="googleChart" id="chart_year_n"></div>
+
+                    </div>
+
+                </div><!--  ContenPane: Numbers -->
+
+                <div data-dojo-type="dijit/layout/ContentPane" title="Revenue"
+                    data-dojo-props="loadingMessage: 'Loading charts'">
+
+                    <div style="width:800px; float: left;">
+
+                        <div class="googleChart" id="chart_week_omzet"></div>
+                        <div class="googleChart" id="chart_month_omzet"></div>
+                        <div class="googleChart" id="chart_year_omzet"></div>
+
+                    </div>
+
+                </div>
+
+            </div><!-- TabContainer: Charts -->
+
+            <div data-dojo-type="dijit/layout/ContentPane" title="Grids" id="tab_grids"
+                    data-dojo-props="">
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: 'DataGrid: Week', open: false">
+                    <table id="grid_week_omzet" name="" class="datagrid" style="height:100%"
+                        data-dojo-id="grid_week_omzet"
+                        data-dojo-type="dojox/grid/EnhancedGrid"
+                        data-dojo-props="store: weekStore,
+                                         autoWidth: true,
+                                         selectable: false,
+                                         autoHeight: true,
+                                         rowSelector: '10px',
+                                         loadingMessage: 'Loading grid...',
+                                         noDataMessage: 'No data...',"
+                        >
+                        <thead>
+                            <tr>
+                                <th field="year">year</th>
+                                <th field="month">month</th>
+                                <th field="week">week</th>
+                                <th field="n">verkocht</th>
+                                <th field="omzet" styles="text-align:right;" formatter="mm_datagrid_formatters.formatCurrency">omzet</th>
+                            </tr>
+                      </thead>
+                    </table>
+                </div>
+
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: 'DataGrid: Month', open: false">
+                <table id="grid_month_omzet" name="" class="datagrid" style="height:100%"
+                        data-dojo-id="grid_month_omzet"
+                        data-dojo-type="dojox/grid/EnhancedGrid"
+                        data-dojo-props="store: monthStore,
+                                         autoWidth: true,
+                                         selectable: false,
+                                         autoHeight: true,
+                                         rowSelector: '10px',
+                                         loadingMessage: 'Loading grid...',
+                                         noDataMessage: 'No data...',"
+                        >
+                        <thead>
+                            <tr>
+                                <th field="year">year</th>
+                                <th field="month">month</th>
+                                <th field="month_name">month_name</th>
+                                <th field="n">verkocht</th>
+                                <th field="omzet" styles="text-align:right;" formatter="mm_datagrid_formatters.formatCurrency">omzet</th>
+                            </tr>
+                      </thead>
+                    </table>
+                </div>
+
+                <div data-dojo-type="dijit/TitlePane" data-dojo-props="title: 'DataGrid: Year', open: false">
+                <table id="grid_year_omzet" name="" class="datagrid" style="height:100%"
+                        data-dojo-id="grid_year_omzet"
+                        data-dojo-type="dojox/grid/EnhancedGrid"
+                        data-dojo-props="store: yearStore,
+                                         autoWidth: true,
+                                         selectable: false,
+                                         autoHeight: true,
+                                         rowSelector: '10px',
+                                         loadingMessage: 'Loading grid...',
+                                         noDataMessage: 'No data...',"
+                        >
+                        <thead>
+                            <tr>
+                                <th field="year">year</th>
+                                <th field="n">verkocht</th>
+                                <th field="omzet" styles="text-align:right;" formatter="mm_datagrid_formatters.formatCurrency">omzet</th>
+                            </tr>
+                      </thead>
+                    </table>
+                </div>
+
+            </div><!-- ContentPane: Grids -->
+
+            <div data-dojo-type="dijit/layout/ContentPane" title="Top auctions" id="tab_topauctions"
+                 data-dojo-props="loadingMessage: 'Loading auctions'">
+
+                <span data-dojo-type="dojo/data/ItemFileReadStore" data-dojo-id="topauctionsStore" data-dojo-props="url:'/json_auctions/topauctions/20'"></span>
+
+                <script type="text/javascript">
+                    require(
+                        ["dojo/dom-construct",
+                         "dojo/dom",
+                         "dojo/ready",
+                         "dojo/request/xhr",
+                         "dojo/data/ItemFileReadStore",
+                         ],
+
+                        function(domConstruct, dom, ready, xhr, ItemFileReadStore) {
+
+                            ready(function() {
+
+                                var defaultersStartDateSet  = false;
+                                var defaultersEndDateSet    = false;
+
+                                setTopauctionsStartDate = function() {
+                                    var startDate = dijit.byId('start_date').get('value');
+                                    dijit.byId('end_date').constraints.min = startDate;
+                                    if (startDate) {
+                                        defaultersStartDateSet = true;
+                                    } else {
+                                        defaultersStartDateSet = false;
+                                    };
+                                    if (defaultersStartDateSet && defaultersEndDateSet) {
+                                        submitDates();
+                                    };
+                                };
+
+                                setTopauctionsEndDate = function() {
+                                    var endDate = dijit.byId('end_date').get('value');
+                                    dijit.byId('start_date').constraints.max = endDate;
+                                    if (endDate) {
+                                        defaultersEndDateSet = true;
+                                    } else {
+                                        defaultersEndDateSet = false;
+                                    };
+                                    if (defaultersStartDateSet && defaultersEndDateSet) {
+                                        submitDates();
+                                    };
+                                };
+
+                                setTopauctionsNumber = function() {
+                                    var number = dijit.byId('number').get('value');
+                                    if (number) {
+                                        submitDates();
+                                    };
+                                };
+
+                                var submitDates = function() {
+                                    var form    = dijit.byId('defaulters_dates_form');
+                                    var values  = form.get('value');
+                                    if (defaultersStartDateSet && defaultersEndDateSet) {
+                                        values.start_date   =   dojo.date.locale.format(values.start_date, {datePattern: "yyyy-MM-dd", selector: "date"});
+                                        values.end_date     =   dojo.date.locale.format(values.end_date, {datePattern: "yyyy-MM-dd", selector: "date"});
+                                    }
+                                    if (values.number) {
+                                        var xhr_url = '/json_auctions/topauctions/' + values.number
+                                    } else {
+                                        var xhr_url = '/json_auctions/topauctions/20'
+                                    }
+                                    xhr(xhr_url, {
+                                        query: values,
+                                        handleAs: "json"
+                                    })
+                                        .then(function (data) {
+                                            if (data.items.length == 0) {
+                                                dojo.publish("testMessageTopic", [
+                                                 {
+                                                   message: "Sorry, no records found",
+                                                   type: "message",
+                                                   duration: 4000
+                                                 }
+                                                ]);
+                                            } else {
+                                                var store = new ItemFileReadStore({data: data});
+                                                var grid = dijit.byId('topauctions_grid');
+                                                grid.setStore(store);
+                                                domConstruct.empty('occ');
+                                                domConstruct.empty('eur_tot_marge');
+                                                domConstruct.empty('proc_marge');
+                                                dom.byId('occ').innerHTML = data.totals.occ
+                                                dom.byId('eur_tot_marge').innerHTML = '&euro; ' + data.totals.eur_tot_marge
+                                                dom.byId('proc_marge').innerHTML = data.avgs.proc_marge + ' %'
+                                            }
+                                    }, function (err) {
+                                        domConst.place("<p>error: <p>" + err.response.text + "</p></p>", "response");
+                                    });
+
+                                };
+
+                            });
+
+                        });
+                </script>
+
+                <form id="defaulters_dates_form" method="get" action="/json_auctions/search/customer" data-dojo-type="dijit/form/Form" name="defaulters_dates_form" data-dojo-props="" data-dojo-id="defaulters_dates_form">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="start_date">Van:</label>
+                                <input type="text" id="start_date" name="start_date" data-dojo-type="dijit/form/DateTextBox" data-dojo-props="type:'text', name:'start_date', datePattern: 'yyyy-MM-dd', onChange:function(){ setTopauctionsStartDate() }" />
+                            </td>
+                            <td>
+                                <label for="end_date">Tot:</label>
+                                <input type="text" id="end_date" name="end_date" data-dojo-type="dijit/form/DateTextBox" data-dojo-props="type:'text', name:'end_date', datePattern: 'yyyy-MM-dd', onChange:function(){ setTopauctionsEndDate() }" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="number">Aantal:</label>
+                                <input type="text" id="number" name="number" data-dojo-type="dijit/form/NumberTextBox" data-dojo-props="type:'text', name:'number', onChange:function(){ setTopauctionsNumber() }" />
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </form>
+
+                <div class="scrollcontainer" style="height:100%">
+                    <table id="topauctions_grid" name="topauctions_grid" class="datagrid" style="height:100%"
+                        data-dojo-id="topauctions_grid"
+                        data-dojo-type="dojox/grid/EnhancedGrid"
+                        data-dojo-props="autoWidth: true,
+                                         selectable: true,
+                                         autoHeight: true,
+                                         rowSelector: '10px',
+                                         loadingMessage: 'Loading grid...',
+                                         noDataMessage: 'No data...',
+                                         region:'bottom',
+                                         store: topauctionsStore,
+                                     ">
+                      <thead>
+                        <tr>
+                            <th field="dist" width="500px">veiling_titel / partner_titel</th>
+                            <th field="occ" styles="text-align:right;" width="80px">occurences</th>
+                            <th field="eur_tot_marge" styles="text-align:right;" width="100px" formatter="mm_datagrid_formatters.formatCurrency">Marge (total, &euro;)</th>
+                            <th field="proc_marge" styles="text-align:right;" width="100px" formatter="mm_datagrid_formatters.formatPercent">Marge (avg, %)</th>
+                        </tr>
+                      </thead>
+                    </table>
+                    <!-- footer with totals -->
+                    <table id="topauctions_totals_grid" name="topauctions_totals_grid" class="datagrid">
+                        <tbody>
+                            <tfoot>
+                                <tr>
+                                    <th width="5px">&nbsp;</th>
+                                    <th width="500px">Totals</th>
+                                    <th id="occ" width="80px">occ</th>
+                                    <th id="eur_tot_marge" width="100px">eur_tot_marge</th>
+                                    <th id="proc_marge" width="100px">proc_marge</th>
+                                </tr>
+                            </tfoot>
+                        </tbody>
+                    </table>
+                    <!--!
+                    <table id="topauctions_totals_grid" name="topauctions_totals_grid" class="datagrid" style="height:100%"
+                        data-dojo-id="topauctions_totals_grid"
+                        data-dojo-type="dojox/grid/EnhancedGrid"
+                        data-dojo-props="autoWidth: true,
+                                         selectable: true,
+                                         autoHeight: true,
+                                         rowSelector: '10px',
+                                         loadingMessage: 'Loading grid...',
+                                         noDataMessage: 'No data...',
+                                         region:'bottom',
+                                         store: topauctionsStore,
+                                     ">
+                      <thead>
+                        <tr>
+                            <th field="dist" width="400px">veiling_titel / partner_titel</th>
+                            <th field="occ" width="80px">occurences</th>
+                            <th field="eur_tot_marge" styles="text-align:right;" width="100px" formatter="mm_datagrid_formatters.formatCurrency">Marge (total, &euro;)</th>
+                            <th field="proc_marge" styles="text-align:right;" width="100px" formatter="mm_datagrid_formatters.formatPercent">Marge (avg, %)</th>
+                        </tr>
+                      </thead>
+                    </table> -->
+                </div>
+
+            </div><!-- ContentPane: Top Auctions -->
+
+            <div data-dojo-type="dijit/layout/ContentPane" title="Tests" id="tab_tests"
+                    data-dojo-props="">
+                <button data-dojo-type="dojomm/charting/MmTest" type="button"
+                        data-dojo-props="message: 'This is my message'">Test</button>
+            </div>
+</div><!-- TabContainer -->

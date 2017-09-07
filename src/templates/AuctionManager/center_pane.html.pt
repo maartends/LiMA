@@ -1,0 +1,38 @@
+<div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region:'center'" style="width: 100%; height: 100%;">
+
+    <div
+        class="centerPanel"
+        data-dojo-type="dijit/layout/ContentPane"
+        data-dojo-props="selected:true"
+        title="Auction">
+
+        <h2>Zoek veiling</h2>
+
+        <metal:content use-macro="load: ./veilingen-search.html.pt" />
+
+    </div><!-- centerPanel -->
+
+</div><!-- TabContainerTop -->
+<div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'bottom'" style="width: 100%; height: 20%;">
+
+    <table id="show_grid" name="auction_show_grid" class="datagrid" style="height:100%"
+        data-dojo-id="show_grid"
+        data-dojo-type="dojox/grid/DataGrid"
+        data-dojo-props="autoWidth: true, selectable: true, loadingMessage: 'Loading grid...', rowSelector: '10px'">
+      <script type="dojo/on" data-dojo-event="rowdblclick" data-dojo-args="evt">viewRowDataPopup(evt);</script>
+      <thead>
+        <tr>
+            <th field="klant_voornaam" width="100px">klant_voornaam</th>
+            <th field="klant_achternaam" width="100px">klant_achternaam</th>
+            <th field="klant_email" width="150px">klant_email</th>
+            <th field="klant_straat" width="150px">klant_straat</th>
+            <th field="klant_nummer" width="50px">klant_nummer</th>
+            <th field="klant_postcode" width="50px">klant_postcode</th>
+            <th field="klant_gemeente" width="150px">klant_gemeente</th>
+            <th field="klant_telefoon" width="90px">klant_telefoon</th>
+        </tr>
+      </thead>
+    </table>
+
+
+</div><!-- TabContainerBottom -->

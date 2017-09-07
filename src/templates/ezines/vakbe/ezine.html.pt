@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html xml:lang="nl" lang="nl" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Vakantie.be E-mail Magazine</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="nl-be"       http-equiv="Content-Language" />
+    <meta name="Copyright"      content="Copyleft: Mali Media Group - Please contact the company if you would like to copy content or place an advertisement - info@malimediagroup.be" />
+    <meta name="author"         content="Vakantie.be | Redactie - redactie@vakantie.be" />
+    <meta name="description"    content="E-magazine van Vakantie.be boordevol tips voor trips, editie: ${ Ezine.name }" />
+    <meta name="subject"        content="${ Ezine.subject }" />
+    <meta name="name"           content="${ Ezine.name }" />
+    <meta name="keywords"       content="e-zine, nieuwsbrief, vakantie, mali media, mali media group, e-marketing, B2C" />
+    <meta name="generator"      content="LiMA - LiMA is Mali Media's application" />
+    <!--! <meta property="og:image"   content="{concat('http://nieuwsbrief.vakantie.be/img/html/', Ezine.header-image)}"/> -->
+    <link rel="stylesheet"      type="text/css" href="http://nieuwsbrief.vakantie.be/ezine/css/ezines-all.css" />
+    <link rel="stylesheet"      type="text/css" href="http://nieuwsbrief.vakantie.be/ezine/css/vkbe-ezine.css" />
+<style type="text/css">
+.outer {
+    width: 600px;
+}
+h2, h2 a {
+    color: #ffffff !important; /* !important voor Hotmail */
+}
+.aanbiedingen h3, .aanbiedingen h3 a {
+    color: #e3006a !important; /* !important voor Hotmail */
+}
+.middletitle h3, .middletitle h3 a {
+    color: #FFFFFF !important; /* !important voor Hotmail */
+}
+h4, h4 a {
+    color: #e3006a !important; /* !important voor Hotmail */
+}
+.footer h2, .footer h2 a {
+    color: #bbb1ac !important; /* !important voor Hotmail */
+}
+table.content-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+</style>
+<!--!
+<xsl:if test="(Ezine.dedicated = 'true')">
+<link rel="stylesheet" type="text/css" href="{Ezine.extcss}" />
+</xsl:if>
+-->
+  </head>
+  <body style="font-size: 11px; font-family: Arial; color: #4c423d;">
+    <h1>Vakantie.be E-mail Magazine: ${ Ezine.subject }"</h1>
+    <center>
+<!-- #begin online versie -->
+      <table class="outer" cellspacing="0" cellpadding="0" style="font-family: Arial, Helvetica, sans-serif; margin: auto;">
+        <tbody>
+          <tr>
+            <td height="10" style="font-family: Arial, Helvetica, sans-serif; height: 11px;"></td>
+          </tr>
+          <tr>
+            <td style="font-size: 9px; line-height: 11px; font-family: Arial; color: #A0A0A4; text-align: right;">Voeg <a href="mailto:sanne@vakantie.be" style="font-family: Arial, Helvetica, sans-serif; color: #e3006a !important; text-decoration: none;">sanne@vakantie.be</a> toe aan je adressenlijst of merk ons aan als veilig zodat ons e-zine niet in je spam belandt.<br />
+            Indien u ons e-magazine niet goed kan lezen, klik dan <a href="{{viewurl}}" target="_blank" style="font-family: Arial, Helvetica, sans-serif; color: #e3006a !important; text-decoration: none;">hier</a> om de online versie te bekijken</td>
+          </tr>
+          <tr>
+            <td height="10" style="font-family: Arial, Helvetica, sans-serif; height: 11px;"></td>
+          </tr>
+        </tbody>
+      </table>
+<!-- einde online versie -->
+<!-- begin topbanner -->
+      <table class="outer content-title" cellspacing="0" cellpadding="0" style="font-family: Arial, Helvetica, sans-serif; margin: auto; background: #FFFFFF;">
+        <tbody>
+          <tr>
+            <td style="font-size: 0px; font-family: Arial, Helvetica, sans-serif; line-height: 0px;">
+              <a href="${ 'http://www.vakantie.be'|append_utmcodes(Ezine.name) }" title="Vakantie.be: Reizen - Last Minutes - Citytrips - Hotels - Vliegtickets - Vakantiehuizen" target="_blank" style="font-family: Arial, Helvetica, sans-serif;">
+              <!--! <xsl:attribute name="href"><xsl:value-of select="Ezine.header-link" /></xsl:attribute> -->
+                <img src="http://nieuwsbrief.vakantie.be/img/html/vakantiebe_top_20101223.jpg" border="0" height="190" alt="banner" width="{Ezine.width}" style="font-family: Arial, Helvetica, sans-serif; border: medium none; display: block;  border-radius:15px 15px 0px 0px" />
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<!-- einde topbanner -->
+<!-- begin tabs -->
+      <table class="outer" cellspacing="0" cellpadding="0" style="background: #FFFFFF; font-size: 11px; font-family: Arial; margin: auto;">
+        <tbody>
+          <tr>
+            <td style="font-family: Arial, Helvetica, sans-serif;">
+              <table class="outer" cellspacing="0" cellpadding="0" style="font-family: Arial, Helvetica, sans-serif;">
+                <tbody>
+                  <tr>
+                    <td style="font-family: Arial, Helvetica, sans-serif; text-align: right; width: 50%;"><a href="http://www.vakantie.be?utm_source=vakbe_e-zine&amp;utm_medium=email" title="Vakantie.be" style="font-family: Arial, Helvetica, sans-serif;"><img src="http://nieuwsbrief.vakantie.be/img/html/vakantiebe_logo.gif" alt="Vakantie.be Logo" border="0" style="font-family: Arial, Helvetica, sans-serif;" /></a></td>
+                    <td style="padding-right: 5px; font-family: Arial, Helvetica, sans-serif; text-align: right; width: 50%;"><span style="font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #9c8c93; text-align: right; margin: 2px 0px;">{{currentdate format='%d/%m/%Y'}} | www.vakantie.be</span><br /><span style="font-weight: bold; font-size: 11px; font-family: Arial, Helvetica, sans-serif; color: #e3006a !important; text-align: right; margin: 2px 0px;">Uw lidnummer: {{customer field='id'}}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td height="15" style="height: 15px; background: #efebe9;"></td>
+          </tr>
+        </tbody>
+      </table>
+<!-- einde tabs -->
+<!-- begin koptekst en TOC -->
+
+<metal:content use-macro="load: ezine-intro.html.pt" />
+
+<!-- einde koptekst en TOC -->
+
+<metal:content use-macro="load: ../ezine-banner.html.pt" />
+
+<!-- begin content -->
+
+<metal:content use-macro="load: ezine-content.html.pt" />
+
+<!-- end content -->
+
+<tal:block condition="[item for item in Ezine.ezine_items if item.type == 'offer']">
+<!-- begin aanbiedingen -->
+          <table class="outer aanbiedingen" cellspacing="0" cellpadding="0" style="font-family: Arial, Helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+            <tbody>
+              <tr>
+                <td class="content-title">
+                  <a name="TOC-A" id="TOC-A" style="font-family: Arial, Helvetica, sans-serif;"></a>
+                  <h2 style="font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin: 5px 2px;">Aanbiedingen</h2>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family: Arial, Helvetica, sans-serif;">
+
+    <!-- begin -->
+<!--!
+    <!- begin middle title
+          <table class="outer middletitle" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td>
+                  <h3><a href="TOC-M1" id="TOC-M1">&gt; Middletitle</a></h3>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    <!- end middle title
+-->
+
+    <metal:content use-macro="load: ezine-aanbieding.html.pt" />
+
+    <!-- end -->
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+<!-- einde aanbiedingen -->
+</tal:block>
+
+<!-- footer -->
+
+<metal:content use-macro="load: ../ezine-footer.html.pt" />
+
+<!-- footer -->
+
+    </center>
+  </body>
+</html>

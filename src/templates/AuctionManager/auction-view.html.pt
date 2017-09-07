@@ -1,0 +1,20 @@
+<metal:main use-macro="load: ../auctionmanager.html.pt">
+        <!--! maar de css scope moet hier gelimit worden
+        <div data-dojo-type="dijit/layout/ContentPane" title="Auction" href="/auction/${ Auction.type }/${ Auction.name }.html"
+                        data-dojo-props="loadingMessage: 'Loading auction'"></div>
+        -->
+    <div metal:fill-slot="content" id="center-pane" class="layout-pane auction" style="height: 100%;">
+        <div id="center-pane-content" style="height: 100%;">
+
+        <metal:content tal:condition="exists:Auction" tal:define="c_data True" use-macro="load: rest-auction.html.pt" />
+
+        <p><a href="/EzineManager/content/${ Auction.cid }/view" title="${ Auction.title }" tal:content="Auction.__unicode__()" class="ajaxClick">ID: title</a></p>
+        <h3>Gelinkt aan</h3>
+        <ul class="">
+            <li tal:repeat="item Auction.ezine_items"><a href="/ezine/${ item.ezine.type }/${ item.ezine.name|lower }.html" target="_blank" title="${ item.ezine.name }">${item.ezine.name} (${item.ezine.send_date})</a></li>
+        </ul>
+
+        </div>
+    </div><!-- center-pane -->v
+
+</metal:main>

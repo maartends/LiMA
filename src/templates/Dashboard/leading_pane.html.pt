@@ -1,0 +1,34 @@
+<!-- Left Acc Container -->
+<div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="region:'leading', splitter:true, minSize:20"
+        style="width: 170px;" id="leftAccordion">
+
+    <!-- Links Acc -->
+    <div
+            id="leftColLinks" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'left', splitter: true, title:'Links'">
+        <h3>Intern</h3>
+            <h4>Admin</h4>
+            <ul>
+                <li><a href="http://vouchermanager.biedmee.be/admin" title="Vouchermanager" target="_blank">Vouchermanager</a></li>
+                <li><a href="http://openx.malimedia.be" title="OpenX" target="_blank">OpenX</a></li>
+                <li><a href="http://ldap.malimedia.be" title="OpenLDAP" target="_blank">OpenLDAP</a></li>
+                <li><a href="http://www.malimedia.be:10000" title="WebMin" target="_blank">WebMin</a></li>
+                <li><a href="https://malimediagroup.teamworkpm.net" title="TeamWork Project Manager" target="_blank">TeamWork Project Manager</a></li>
+                <li><a href="https://sourceforge.net/p/malimedialima/tickets/" title="SourceForge" target="_blank">File a bug</a></li>
+            </ul>
+            <h4>Websites</h4>
+            <ul>
+                <li><a href="http://www.malimedia.be/" title="Mali Media Corporate site" target="_blank">Mali Media Corporate site</a></li>
+                <li><a href="http://blog.vakantie.be/wp-login.php" title="Vakantie Blog" target="_blank">Vakantie Blog</a></li>
+            </ul>
+<!--!
+        <h3>Extern</h3>
+        <ul>
+            <li><a href="http://veilingen.vakantie.be/ttw/" title="TTW backend" target="_blank">TTW backend</a></li>
+        </ul>
+-->
+    </div><!-- leftColLinks -->
+
+</div><!-- Left Acc Cont -->
+

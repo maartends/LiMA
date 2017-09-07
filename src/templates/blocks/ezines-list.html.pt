@@ -1,0 +1,12 @@
+<ul>
+{% for item in Ezines|sort(attribute='send_date', reverse=True) %}
+    <li>
+        <a href="/EzineManager/ezine/${ item.id }/view" title="${ item.name } (${ item.subject })" class="ajax-load">${ item.name }</a><br />
+    </li>
+{% endfor %}
+</ul>
+<div id="ezineTree" data-dojo-id="ezineTree" data-dojo-type="dijit/Tree" data-dojo-props="
+            model:ezineModel,
+            showRoot: true,
+            openOnClick:true,
+        "></div>

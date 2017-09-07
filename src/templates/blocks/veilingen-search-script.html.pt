@@ -1,0 +1,14 @@
+<link rel="stylesheet" type="text/css" href="${ request.static_url('gen:static/libs/js/dojo/1.8.0/dojox/grid/resources/tundraGrid.css') }" />
+<style type="text/css">
+#grid {
+    height: 40em;
+}
+.dojoxGrid .dojoxGridCell {
+    white-space:nowrap;
+}
+label {
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+}
+</style>

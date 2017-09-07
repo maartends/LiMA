@@ -1,0 +1,14 @@
+<metal:main use-macro="load: layout.html.pt">
+
+<div metal:fill-slot="content" ommit-tag="">
+    <h2>Handleiding</h2>
+
+<metal:content use-macro="load: help_xhr.html.pt" />
+
+{% if debug %}
+${ debug }
+{% endif %}
+
+</div>
+
+</metal:main>

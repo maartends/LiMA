@@ -1,0 +1,11 @@
+<metal:main use-macro="load: layout.html.pt">
+
+<div metal:fill-slot="leading_pane" ommit-tag="">
+    <metal:content use-macro="load: CustomerManager/leading_pane.html.pt" />
+</div>
+
+<div metal:fill-slot="center_pane" ommit-tag="">
+    <metal:content use-macro="load: CustomerManager/center_pane.html.pt" />
+</div>
+
+</metal:main>

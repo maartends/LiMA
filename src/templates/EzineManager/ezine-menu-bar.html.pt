@@ -1,0 +1,19 @@
+<div id="ezine-menu-bar">
+    <ul>
+        <li>
+            <a href="#" target="_blank" title="Wordt vernieuwd">Edit</a>
+<!--!
+            <a href="/admin/Ezine/${ Ezine.cid }/edit" target="_blank">Edit</a>
+-->
+        </li>
+        <li>
+            <a href="/action/upload_to_clang" data-ezine-id="${ Ezine.cid }" class="ajaxclick" id="uploadclick">Upload</a>
+        </li>
+        <li>
+            <a href="/ezine/${ Ezine.type }/${ Ezine.name|lower }.html?mailer=mailjet" target="_blank">Preview in new tab</a>
+        </li>
+        <li>
+            <a href="/ezine/${ Ezine.type }/${ Ezine.name|lower }.html?action=download">Download as html</a>
+        </li>
+    </ul>
+</div>

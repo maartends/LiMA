@@ -1,0 +1,142 @@
+<tal:block repeat="item [item for item in Ezine.ezine_items if item.type == 'offer']">
+        <!-- begin aanbieding ${ item.customer.name } - ${ item.city } - ${ item.accomodatie } -->
+        <table class="outer" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td style="font-size: 0px; line-height: 0px;">
+                <hr />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="outer" cellspacing="0" style="background-color: white;" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td style="height: 5px;" colspan="7"></td>
+                      <td class="num-price" height="5" style="width: 80px; height: 5px; font-size: 0px; line-height: 0px;"></td>
+                    </tr>
+                    <tr>
+                      <td style="width: 7px;"></td>
+                      <td valign="top" style="width: 120px; font-size: 0px; line-height: 0px;">
+                        <a href="${ item.url|url_prepare(Ezine.name) }" name="${'#TOCA' + str(repeat.item.number) }" id="${'#TOCA' + str(repeat.item.number) }" title="${ item.acctype } ${ item.accomodatie }" rel="${ item.country }, ${ item.acctype }, ${ item.verzorging }" target="_blank">
+                        <img title="${ item.accomodatie }" src="${ item.foto }" border="0" height="80" alt="${ item.acctype } ${ item.accomodatie }" width="120" style="display: block; width: 120px; height: 80px;" />
+                        </a>
+                      </td>
+                      <td style="width: 12px; font-size: 0px; line-height: 0px;"></td>
+                      <td align="left" valign="top" style="width: 296px;">
+                        <table cellspacing="0" style="width: 299px;" cellpadding="0">
+                          <tbody>
+                            <tr>
+                              <td align="left" valign="top">
+                                <h4><a href="${ item.url|url_prepare(Ezine.name) }" title="${ item.acctype } ${ item.accomodatie }" rel="${ item.country }, ${ item.acctype }, ${ item.verzorging }" target="_blank">
+                                  ${ item.acctype } ${ item.accomodatie } <tal:block condition="item.accstars" content="'*' * item.accstars" /></a></h4>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td title="Regio: {regio}" align="left" valign="top" style="font-family: Arial; font-size: 11px; font-weight: bold; cursor: default;">
+                                ${ item.country }<tal:block condition="item.region"> &gt; ${ item.region }</tal:block><tal:block condition="item.city"> &gt; ${ item.city }</tal:block></td>
+                            </tr>
+                            <tr style="height: 50px;">
+                              <td align="left" height="50" valign="middle" style="font-family: Arial; color: #64554c; font-size: 11px;">
+                                <br />Vertrek: ${ item.date.strftime('%d %b') } <tal:block condition="item.duration">(${ item.duration })</tal:block> | ${ item.verzorging }</td>
+                            </tr>
+                            <tr>
+                              <td align="left" valign="top">
+                                <table cellspacing="0" cellpadding="0">
+                                  <tbody>
+                                    <tr>
+                                      <td>
+                                        <a href="${ item.url|url_prepare(Ezine.name) }" rel="${ item.country }, ${ item.acctype }, ${ item.verzorging }" target="_blank" style="font-family: Arial; color: #4c423d; font-size: 11px; font-weight: bold; text-decoration: none;">
+                                            Meer informatie of reservatie bij: ${ item.customer.name }</a>
+                                      </td>
+                                      <td align="right" style="font-size: 0px; line-height: 0px; width: 15px;">
+                                        <a href="${ item.url|url_prepare(Ezine.name) }" target="_blank">
+                                          <img src="http://nieuwsbrief.vakantie.be/img/html/blt_oranje.gif" border="0" alt="arrow" style="display: block;" />
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td style="width: 4px; font-size: 0px; line-height: 0px;"></td>
+                      <td align="left" valign="top" style="width: 74px;">
+                        <table cellspacing="0" style="width: 74px;" cellpadding="0">
+                          <tbody>
+                            <tr>
+                              <td align="left" height="30" valign="top" style="font-size: 0px; line-height: 0px; height: 30px;"> </td>
+                              <td align="right" height="30" valign="top" style="height: 30px; font-family: Arial; font-size: 11px; font-weight: bold; color: #e3006a;"> </td>
+                            </tr>
+                            <tr>
+                              <td height="25" style="height: 25px;"> </td>
+                              <td height="25" style="height: 25px;"> </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <table cellspacing="0" style="width: 74px;" cellpadding="0">
+                          <tbody>
+                            <tr>
+                              <td align="center" valign="bottom" style="font-size: 0px; line-height: 0px;">
+                                <a href="${ item.url|url_prepare(Ezine.name) }" rel="${ item.country }, ${ item.acctype }, ${ item.verzorging }" target="_blank">
+                                  <img src="http://nieuwsbrief.vakantie.be/img/logos/${ item.customer.logo }" class="partner-logo" alt="Logo ${ item.customer.name }" border="0" style="display: block; margin-left: auto, margin-right:auto;" />
+                                </a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td style="width: 4px; font-size: 0px; line-height: 0px;"></td>
+                      <td class="num-price" valign="bottom" style="width: 80px;">
+                        <table cellspacing="0" style="width: 80px;" cellpadding="0">
+                          <tbody>
+                            <!-- num -->
+                            <tr>
+                              <td align="center" height="20" valign="top" style="height: 20px;">
+                                <table cellspacing="0" cellpadding="0">
+                                  <tbody>
+                                    <tr>
+                                      <td align="center" valign="middle" class="num">
+                                        <a rel="${ item.country }, ${ item.acctype }, ${ item.verzorging }" target="_blank" style="font-family: Arial; font-size: 17px; font-weight: bold; text-decoration: none;">${ repeat.item.number }</a>
+                                      </td>
+                                      </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                            <!-- num -->
+                            <tr style="height: 5px;">
+                              <td height="5"></td>
+                            </tr>
+                            <tr>
+                              <td class="num-price" valign="bottom" style="font-family: Arial; text-align: center; width: 80px;">
+                                <a href="${ item.url|url_prepare(Ezine.name) }" rel="${ item.country }, ${ item.acctype }, ${ item.verzorging }" target="_blank" style="text-decoration: none; color: White;">
+                                  <span style="color: White; font-size: 12px;">
+                                    <em>${ item.personen }</em>
+                                    <br />
+                                    <em>${ item.preprijs or '' }</em>
+                                  </span>
+                                  <span style="text-align: center; color: White; font-size: 20px; font-weight: bold; display: block;">&euro; ${ item.prijs }</span>
+                                </a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="num-price-bottom" valign="bottom"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr style="height: 8px;">
+              <td height="8"></td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- einde aanbieding ${ item.customer.name } - ${ item.city } - ${ item.accomodatie } -->
+</tal:block>

@@ -1,0 +1,41 @@
+<metal:main use-macro="load: ../ezinemanager.html.pt">
+        <!--! maar de css scope moet hier gelimit worden
+        <div data-dojo-type="dijit/layout/ContentPane" title="Ezine" href="/ezine/${ Ezine.type }/${ Ezine.name }.html"
+                        data-dojo-props="loadingMessage: 'Loading ezine'"></div>
+        -->
+    <div metal:fill-slot="content" id="center-pane" class="layout-pane ezine" style="height: 100%;">
+        <div id="center-pane-content" style="height: 100%;">
+
+        <metal:content tal:condition="exists:Ezine" tal:define="c_data True" use-macro="load: rest-ezine.html.pt" />
+<!--!
+        <h3>Items gekoppeld aan dit ezine</h3>
+        <p>Hier wijzig je het item dat aan dit ezine is gekoppeld. Je wijzigt daarmee niet het onderliggende arrangement.</p>
+        <ul class="">
+            <li tal:repeat="item Ezine.ezine_items"><a href="/EzineManager/content/${ item.ezine_cid }/edit" title="${ item.title }" class="ajaxClick" tal:content="item.title">ID: title</a></li>
+        </ul>
+-->
+
+        <!-- Upload Dialog -->
+        <div data-dojo-id="mm_dialog_uploadEzineForm" data-dojo-type="dijit/Dialog" data-dojo-props="" title="Upload Ezine..." style="display: none">
+            <metal:content use-macro="load: ./rest-upload_ezine.html.pt" tal:define="c_data False" />
+        </div>
+        <!-- /Upload Dialog -->
+
+        <h3>Actions</h3>
+        <ul>
+            <li>
+                <!--! <a href="/action/upload_to_clang" data-ezine-id="${ Ezine.cid }" class="ajaxclick" id="uploadclick">Upload</a> -->
+                <a onClick="event.preventDefault(); mm_dialog_uploadEzineForm.show();" href="/action/upload_ezine" data-ezine-id="${ Ezine.cid }" id="uploadclick">Upload</a>
+            </li>
+            <li>
+                <a href="/ezine/${ Ezine.type }/${ Ezine.name|lower }.html?mailer=mailjet" target="_blank">Preview in new tab</a>
+            </li>
+            <li>
+                <a href="/ezine/${ Ezine.type }/${ Ezine.name|lower }.html?action=download">Download as html</a>
+            </li>
+        </ul>
+
+        </div>
+    </div><!-- center-pane -->v
+
+</metal:main>

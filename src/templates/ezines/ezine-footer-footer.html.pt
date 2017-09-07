@@ -1,0 +1,130 @@
+      <tr>
+        <td height="20" align="left" valign="middle" style="border-bottom: 1px solid #d4d4d4; font-family: Arial, Helvetica, sans-serif; height: 20px; background: #64554c;">
+          <table cellspacing="0" cellpadding="0" style="margin: 0px 10px">
+            <tbody>
+              <tr>
+                <td align="left" valign="middle" style="font-weight: bold; font-size: 11px; font-family: Arial; color: #FFFFFF !important; width: 590px;">
+                  <a href="http://www.vakantie.be/Contact" style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF !important; text-decoration: none;">Contact</a>
+                  -
+                  <a href="http://www.vakantie.be/FAQ" style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF !important; text-decoration: none;">FAQ</a>
+                  -
+                  <a href="http://www.vakantie.be/Adverteren" style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF !important; text-decoration: none;">Adverteren?</a>
+                  -
+                  <a href="http://www.vakantie.be/Vacatures" style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF !important; text-decoration: none;">Vacatures</a>
+                  -
+                  <a href="http://www.vakantie.be/Disclaimer" style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF !important; text-decoration: none;">Disclaimer</a>
+                  -
+                  <a href="http://www.vakantie.be/Links" style="font-family: Arial, Helvetica, sans-serif; color: #FFFFFF !important; text-decoration: none;">Links</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" valign="middle" style="font-family: Arial, Helvetica, sans-serif; background: #64554c;">
+          <table cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; margin: 0px 10px" cellpadding="0">
+            <tbody>
+              <tr>
+                <td height="5" style="font-family: Arial, Helvetica, sans-serif; height: 5px;">
+                </td><td>
+              </td></tr>
+              <tr>
+                <td align="left" valign="middle" style="font-size: 11px; line-height: 10pt; font-family: Arial; color: #FFFFFF !important; width: 590px;">
+                  <table style="float:left">
+                    <tbody>
+                      <tr>
+                        <td class="txt3" colspan="2">International websites Mali Media Group</td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a href="http://vakantie.be" class="txt3">
+                            <img class="footerImg" src="http://www.vakantie.be/Skins/Footer/images/Belgium_Logo_Small.png" alt="Vakantie.be">
+                            Vakantie.be
+                          </a>
+                        </td>
+                        <td>
+                          <a href="http://vakantiespotters.nl" class="txt3">
+                            <img class="footerImg" src="http://www.vakantie.be/Skins/Footer/images/Netherlands_Logo_Small.png" alt="Vakantiespotters.nl">
+                            Vakantiespotters.nl
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a href="http://brochurezoeker.be" class="txt3">
+                            <img class="footerImg" src="http://www.vakantie.be/Skins/Footer/images/Belgium_Logo_Small.png" alt="Brochurezoeker.be">
+                            Brochurezoeker.be
+                          </a>
+                        </td>
+                        <td>
+                          <a href="http://brochurezoeker.nl" class="txt3">
+                            <img class="footerImg" src="http://www.vakantie.be/Skins/Footer/images/Netherlands_Logo_Small.png" alt="Brochurezoeker.nl">
+                            Brochurezoeker.nl
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <a href="http://brochuresenligne.be" class="txt3">
+                            <img class="footerImg" src="http://www.vakantie.be/Skins/Footer/images/Belgium_Logo_Small.png" alt="Brochuresenligne.be">
+                            Brochuresenligne.be
+                          </a>
+                        </td>
+                        <td>
+                      </td></tr>
+                    </tbody>
+                  </table>
+                  <div id="social" style="background-color: #efebe9; border-radius: 5px; float: right; padding: 5px; vertical-align:middle">
+                    <span style="color: #63564E;font-size: 14px;font-weight: bold; padding: 0px;position:relative; top:-10px;">Volg ons ook via:</span>
+                    <a href="http://twitter.com/vakantieBE" title="Twitter" hidefocus="true" target="_blank">
+                      <img src="http://www.vakantie.be/Skins/affiliates/images/twitter.png" alt="Twitter" border="0">
+                    </a>
+                    <a tal:condition="Ezine.type == 'vakbe'" href="http://www.facebook.com/vakantiedotbe" title="Like us on Facebook" hidefocus="true" target="_blank">
+                        <img src="http://www.vakantie.be/Skins/affiliates/images/facebook.png" alt="Facebook" border="0">
+                    </a>
+                    <a tal:condition="Ezine.type == 'veiling'" href="https://www.facebook.com/veilingen.vakantie.be" title="Like us on Facebook" hidefocus="true" target="_blank">
+                        <img src="http://www.vakantie.be/Skins/affiliates/images/facebook.png" alt="Facebook" border="0">
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td height="5" style="font-family: Arial, Helvetica, sans-serif; height: 5px;">
+                </td><td>
+              </td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td align="left" valign="middle" style="font-family: Arial, Helvetica, sans-serif; background: #64554c; ">
+          <table cellspacing="0" cellpadding="0" style="margin: 0px 10px">
+            <tbody>
+              <tr>
+                <td height="5" style="font-family: Arial, Helvetica, sans-serif; height: 5px;">
+                </td><td>
+              </td></tr>
+              <tr style="font-family: Arial, Helvetica, sans-serif; background-color: #efebe9">
+                <td align="left" valign="middle" style="font-size: 11px; font-family: Arial; color: #64554c !important; padding: 3px">
+                  U bent ingeschreven op ons e-zine met het emailadres
+                  <a href="mailto:{{customer field='emailaddress'}}" style="font-family: Arial, Helvetica, sans-serif; color: #64554c !important;">{{customer field='emailaddress'}}</a>
+                  . Uw lidnummer is
+                  <strong style="font-family: Arial, Helvetica, sans-serif;">{{customer field='id'}}</strong>
+                  . Gelieve uw lidnummer te vermelden in uw communicatie.
+                  <br>
+                  <a href="http://nieuwsbrief.vakantie.be/afmelden.php?email={{customer field='emailaddress'}}" title="Uitschrijven" target="_blank" style="font-family: Arial, Helvetica, sans-serif; color: #64554c !important;">Klik hier</a>
+                  als u zich wil uitschrijven uit ons e-magazine.
+                  <br>
+                  <a href="http://nieuwsbrief.vakantie.be/profiel.php?email={{customer field='emailaddress'}}&amp;id={{customer field='id'}}&amp;type=wijzigen" title="Profiel wijzigen" target="_blank" style="font-family: Arial, Helvetica, sans-serif; color: #64554c !important;">Klik hier</a>
+                  als u uw profielinstellingen wil wijzigen.
+                </td>
+              </tr>
+              <tr>
+                <td height="5" style="font-family: Arial, Helvetica, sans-serif; height: 5px;">
+                </td><td>
+              </td></tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>

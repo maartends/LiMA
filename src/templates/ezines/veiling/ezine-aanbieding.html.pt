@@ -1,0 +1,64 @@
+<tal:block repeat="item [item for item in Ezine.ezine_items if item.type == 'auction']">
+    <!-- begin aanbieding ${ item.title } -->
+    <table class="outer" cellspacing="0" cellpadding="0"
+            tal:attributes="class 'outer even' if repeat.item.even else 'outer odd'">
+      <tbody>
+        <tr>
+          <td style="font-size: 0px; line-height: 0px;">
+            <hr />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table class="outer" cellspacing="0" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td style="height: 5px;" colspan="7"></td>
+                </tr>
+                <tr>
+                  <td style="width: 7px;"></td>
+                  <td align="left" valign="top" style="">
+                    <table cellspacing="0" style="" cellpadding="0">
+                      <tbody>
+                        <tr>
+                          <td align="left" valign="top" colspan="2">
+                            <h4><a href="${ item.url }" title="${ item.title }" rel="" target="_blank">
+                              <img src="${ request.static_url('lima:static/img/hammer.png') }" alt="Auction hammer"/>${ item.title }</a></h4>
+                          </td>
+                        </tr>
+                        <tr style="height: 50px;">
+                          <td align="left" height="50" valign="middle" style="width: 327px; padding-right: 15px">
+                              <hr />
+                              <table cellspacing="0" style="width: 300px; font-size: 12px;" cellpadding="0" width="300">
+                                  <tbody>
+                                      <tr>
+                                          <td align="left" style="text-align: left;"><p class="normal-price">Bied mee vanaf: &#8364; ${ item.prijs }</p></td>
+                                          <td align="right" style="text-align: right"><a href="${ item.url }" target="_blank" style="float: right; font-weight: normal; text-decoration: underline">Bekijk deze veiling</a></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </td>
+                          <td><metal:content use-macro="load: ezine-bid-button.html.pt" /></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td style="width: 4px; font-size: 0px; line-height: 0px;"></td>
+                  <td style="width: 4px; font-size: 0px; line-height: 0px;"></td>
+                  <td valign="top" style="width: 120px; font-size: 0px; line-height: 0px;">
+                    <a href="${ item.url }" id="TOCA${ repeat.item.number }" title="${ item.title }" rel="" target="_blank">
+                    <img title="${ item.title }" src="${ item.foto }" border="0" height="80" alt="${ item.title }" width="120" style="display: block; width: 120px; height: 80px;" />
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr style="height: 8px;">
+          <td height="8"></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- einde aanbieding ${ item.title } -->
+</tal:block>

@@ -1,0 +1,13 @@
+<div data-dojo-type="dijit/layout/TabContainer" style="width: 100%; height: 100%;">
+    <div data-dojo-type="dijit/layout/ContentPane" title="Toaster">
+        <button id="surprise" >Click here to see Toaster</button>
+    </div>
+</div>
+
+<!--!
+<div data-dojo-type="dojox/calendar/Calendar"
+     data-dojo-props="matrixViewProps:{expandDuration:0}"
+     style="position:relative;width:500px;height:500px">
+</div>
+-->
+

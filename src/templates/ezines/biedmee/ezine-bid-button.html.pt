@@ -1,0 +1,9 @@
+<a class="bid-button" target="_blank"
+   tal:define="url item.auction.url if hasattr(item, 'auction') else item.url"
+   tal:attributes="href templateFilters.append_utmcodes(url, Ezine.name);
+                   rel ', '.join([tag.tag for tag in item.reltags]) if hasattr(item, 'reltags') else None">
+  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/content-bid-button.png" style="display:block; margin:auto" />
+<!--
+  <span>Doe een bod</span>
+-->
+</a>

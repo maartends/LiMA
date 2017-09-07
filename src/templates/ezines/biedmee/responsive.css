@@ -1,0 +1,159 @@
+/* -------------------------------------
+        GLOBAL
+------------------------------------- */
+
+img {
+    max-width: 100%;
+    border:0 !important;
+    padding:0 !important;
+}
+.collapse {
+    margin:0;
+    padding:0;
+}
+body {
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:none;
+    width: 100%!important;
+    height: 100%;
+    background:#fff;
+    margin:0;
+    padding:0
+}
+/* -------------------------------------
+        BODY
+------------------------------------- */
+table.body-wrap {
+    width: 100%;
+}
+/* -------------------------------------
+        TYPOGRAPHY
+------------------------------------- */
+h1, h2, h3, h4, h5, h6, p, a, li, td {
+    font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    margin-bottom:15px;
+    color:#000;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+    font-size: 60%;
+    color: #6f6f6f;
+    line-height: 0;
+    text-transform: none;
+}
+h1 {
+    font-weight:200;
+    font-size: 44px;
+}
+h2 {
+    font-weight:200;
+    font-size: 37px;
+}
+h3 {
+    font-weight:500;
+    font-size: 27px;
+}
+h4 {
+    font-weight:500;
+    font-size: 23px;
+}
+h5 {
+    font-weight:900;
+    font-size: 17px;
+}
+h6 {
+    font-weight:900;
+    font-size: 14px;
+    text-transform: uppercase;
+    color:#444;
+}
+.collapse {
+    margin:0!important;
+}
+p, ul {
+    margin-bottom: 10px;
+    font-weight: normal;
+    font-size:14px;
+    line-height:1.6;
+}
+/* Customisations */
+.auction-item p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 13px;
+    line-height: 1.3em;
+}
+a {
+    color: rgb(94, 158, 15);
+    font-weight: bold;
+    text-decoration: none;
+}
+span.price {
+    font-size: 22px;
+    vertical-align: -5%;
+}
+/* ---------------------------------------------------
+        RESPONSIVENESS
+        Nuke it from orbit. It's the only way to be sure.
+------------------------------------------------------ */
+
+/* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+.container {
+    display:block!important;
+    max-width:600px!important;
+    margin:auto!important; /* makes it centered */
+    clear:both!important;
+    padding-top:20px;
+    padding-bottom:00px;
+}
+/* Be sure to place a .clear element after each set of columns, just to be safe */
+.clear {
+    display: block;
+    clear: both;
+}
+
+
+/* -------------------------------------------
+        PHONE
+        For clients that support media queries.
+        Nothing fancy.
+-------------------------------------------- */
+
+@media only screen and (max-width: 600px) {
+    table [class="main"] {
+        width:100% !important;
+        padding-top:0;
+        padding-bottom:0;
+        margin:auto;
+    }
+    table [class="table_column"] {
+        width:100% !important;
+        margin:auto!important; /* makes it centered */
+        clear:both!important;
+        padding-bottom:00px;
+    }
+    td [class="txt_one"] {
+        padding-top:0px !important;
+        text-align:center !important;
+        width:100%
+    }
+    td [class="hideBar"] {
+        display:none !important
+    }
+    tr [class="hiderow"] {
+     display:none !important
+    }
+    table[class="btn_margin"] {
+        margin-right:30px !important;
+    }
+    span [class="btm_links"] {
+        display:block !important;
+        width:100% !important;
+        clear:left;
+        text-align:center;
+        padding-left:0 !important;
+        padding-right:0 !important
+    }
+}

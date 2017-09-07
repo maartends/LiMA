@@ -1,0 +1,14 @@
+﻿    <table class="box">
+      <tr>
+        <td>
+<metal:content use-macro="load: ezine-bid-button.html.pt" />
+        </td>
+        <td>
+            <dl>
+              <dt class="showWhenCounting" style="">
+                <a tal:attributes="href templateFilters.append_utmcodes(item.url, Ezine.name)" target="_blank" style="color: white">Bekijk deze veiling</a>
+              </dt>
+            </dl>
+        </td>
+      </tr>
+    </table>

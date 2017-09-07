@@ -1,0 +1,106 @@
+<form data-dojo-type="dijit/form/Form" class="manual-form"
+      tal:define="action '/action/upload_ezine';
+                  method 'PUT' if c_data else 'POST';
+                  fid '_'.join( ('EzineForm', str(Ezine.cid)) ) if c_data else 'uploadEzineForm';"
+      tal:attributes="method method;
+                      action action;
+                      id fid;
+                      data-ezine-id Ezine.cid;
+                      data-dojo-id fid">
+
+    <script type="dojo/on" data-dojo-event="submit" data-dojo-args="evt">
+    require(["dojo/request/xhr", "dojo/dom", "dojo/dom-attr", "dojo/dom-construct", "dojo/query", "dojo/json", "dojo/on", "dojo/_base/array", "dojo/domReady!"],
+    function (xhr, dom, domAttr, domConst, query, JSON, on, array) {
+        evt.preventDefault();
+        dojo.style(dojo.byId('inProgress'), "display", "block");
+        var i = 0;
+        download = function(){
+            clangProgressBar.set({value: ++i});
+            if(i < 10){
+                setTimeout(download, 200 + Math.floor(Math.random() * 1000));
+            }
+        }
+        download();
+        var t = evt.target;
+        var w = dijit.byNode(t);
+        var id = w.get('data-ezine-id');
+        responseNode = query('.ajaxResponse', t)[0];
+        var method  = w.get('method');
+        var data    = w.get('value');
+        data.id = id
+        console.log(data);
+        xhr(t.action, {
+            data : data,
+            method: method,
+            handleAs: "json",
+            timeout: 0
+        })
+        .then(function (data) {
+            dojo.publish("testMessageTopic", [
+                {
+                    message: data.response,
+                    type: "message",
+                    duration: 12000
+                }
+            ]);
+            console.log(data);
+            dojo.style(dojo.byId('inProgress'), "display", "none");
+        }, function (err) {
+            domConst.place("<p>Failed! Error: " + err.response.data + "</p>", responseNode);
+            console.log(err);
+            dojo.style(dojo.byId('inProgress'), "display", "none");
+        });
+    });
+    </script>
+
+    <h2>Upload Ezine: ${Ezine.name}</h2>
+
+    <div class="dijitDialogPaneContentArea">
+        <table>
+                <tbody>
+                    <tr>
+                        <th>Mailjet <img src="http://static-mmg.s3.eu-central-1.amazonaws.com/img/icons/other/mailjet.png" alt="" title="Mailjet" /></th>
+                        <td>
+                            <label for="opt_tomailjet" title="Upload">Upload
+                            <input type="checkbox" tal:attributes="id '_'.join( ('opt_tomailjet', fid) )" name="opt_tomailjet" disabled="false" checked="true" data-dojo-type="dijit/form/CheckBox" /></label>
+                        </td>
+                        <td>
+                            <label for="opt_sendtestmailjet" title="Send test">Send test
+                            <input type="checkbox" tal:attributes="id '_'.join( ('opt_sendtestmailjet', fid) )" name="opt_sendtestmailjet" title="Send test" disabled="false" checked="true" data-dojo-type="dijit/form/CheckBox" /></label>
+                        </td>
+                        <td>
+                            <div data-dojo-type="dijit/ProgressBar" style="width:150px; display: none" data-dojo-id="mailjetProgressBar" id="mailjetProgressBar" data-dojo-props="maximum:10"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Clang <img src="http://static-mmg.s3.eu-central-1.amazonaws.com/img/icons/other/clang.png" alt="" title="Clang" /></th>
+                        <td>
+                            <label for="opt_toclang" title="Upload">Upload
+                            <input type="checkbox" tal:attributes="id '_'.join( ('opt_toclang', fid) )" name="opt_toclang" disabled="false" checked="true" data-dojo-type="dijit/form/CheckBox" /></label>
+                        </td>
+                        <td>
+                            <label for="opt_sendtestclang" title="Send test">Send test
+                            <input type="checkbox" tal:attributes="id '_'.join( ('opt_sendtestclang', fid) )" name="opt_sendtestclang" title="Send test" disabled="false" checked="true" data-dojo-type="dijit/form/CheckBox" /></label>
+                        </td>
+                        <td>
+                            <div data-dojo-type="dijit/ProgressBar" style="width:150px; display: none" data-dojo-id="clangProgressBar" id="clangProgressBar" data-dojo-props="maximum:10"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Emailaddress <img src="http://static-mmg.s3.eu-central-1.amazonaws.com/img/icons/famfam/email.png" alt="" title="Emailaddress" /></th>
+                        <td colspan="3">
+                            <input type="text" tal:attributes="id '_'.join( ('testaddress', fid) )" name="testaddress" disabled="false" value="maartendeschrijver@gmail.com" data-dojo-type="dijit/form/ValidationTextBox" />
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ajaxResponse"></div>
+
+    <div class="dijitDialogPaneActionBar">
+        <button data-dojo-type="dijit/form/Button" type="submit">Upload</button>
+        <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){mm_dialog_uploadEzineForm.hide(); dojo.style(dojo.byId('inProgress'), 'display', 'none');}">Cancel</button>
+    </div>
+
+</form>

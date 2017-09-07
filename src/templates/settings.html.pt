@@ -1,0 +1,8 @@
+<metal:main use-macro="load: layout.html.pt">
+
+<div metal:fill-slot="content" ommit-tag="">
+ <h2>Settings</h2>
+ <p>To be continued...</p>
+</div>
+
+</metal:main>

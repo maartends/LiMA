@@ -1,0 +1,21 @@
+<!-- Imports overview -->
+<div id="reports_overview" class="overview" style="clear: left;">
+    <h3 style="display:inline-block">Imports</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>cid</th><th>start_time</th><th>end_time</th><th>filename</th><th>no_addresses</th><th>status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="report reports">
+                <td tal:content="report.cid" />
+                <td tal:content="report.start_time.strftime('%d-%m-%Y %H:%M:%S')" />
+                <td tal:content="report.end_time.strftime('%d-%m-%Y  %H:%M:%S')" />
+                <td tal:content="report.filename" />
+                <td tal:content="report.no_addresses" />
+                <td tal:content="report.status" />
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,5 @@
+﻿  <a tal:attributes="href templateFilters.append_utmcodes(item.url, Ezine.name)" class="bid-button" target="_blank">
+      <img tal:condition="item.type == 'auction'" src="${ request.static_url('lima:static/img/bid-button_256.png') }" />
+      <img tal:condition="item.type == 'content'" src="${ request.static_url('lima:static/img/bid-button_content.png') }" />
+      <span>Doe een bod</span>
+  </a>

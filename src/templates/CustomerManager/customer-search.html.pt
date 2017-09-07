@@ -1,0 +1,91 @@
+<!--<script type="text/javascript" src="${ request.static_url('lima:static/js/lima.customersearch.js') }"></script>-->
+<form id="search_form" method="get" action="/json_auctions/search/customer" data-dojo-type="dijit/form/Form" name="search_form" data-dojo-props="" data-dojo-id="search_form">
+<script type="dojo/on" data-dojo-event="submit" data-dojo-args="evt">
+require(["dojo/data/ItemFileReadStore", "dojo/request/xhr", "dojo/dom", "dojo/dom-construct", "dojo/json", "dojo/on", "dojo/domReady!"],
+function (ItemFileReadStore, xhr, dom, domConst, JSON, on) {
+    // Stop the submit event since we want to control form submission.
+    evt.preventDefault();
+    /*domConst.place("<p>Requesting...</p>", "response");*/
+    var searchform = dijit.byId('search_form');
+    var values = searchform.get('value');
+    xhr("/json_auctions/search/customer", {
+        query: values,
+        handleAs: "json"
+    })
+        .then(function (data) {
+            if (data.items.length == 0) {
+                dojo.publish("testMessageTopic", [
+                 {
+                   message: "Sorry, no records found",
+                   type: "message",
+                   duration: 4000
+                 }
+                ]);
+            } else {
+                domConst.empty("response");
+                store = new ItemFileReadStore({data: data});
+                grid = dijit.byId('search_grid');
+                grid.setStore(store);
+            }
+    }, function (err) {
+        domConst.place("<p>error: <p>" + err.response.text + "</p></p>", "response");
+    });
+});
+</script>
+<!--
+<label for="maskbox">maskbox</label><input type="text" name="maskbox" data-dojo-type="dojomm/mask" data-dojo-props="" />
+-->
+<table>
+    <tr>
+        <td>
+            <label for="clang_id">clang_id</label><input type="text" name="clang_id" data-dojo-type="dijit/form/TextBox" data-dojo-props="" />
+        </td>
+        <td>
+            <label for="klant_email">klant_email</label><input type="text" name="klant_email" data-dojo-type="dijit/form/TextBox" data-dojo-props="" />
+        </td>
+        <!--!
+        <td>
+            <label for="ogm_code">ogm_code</label><input type="text" name="ogm_code" pattern="\\+\\+\\+[0-9]{3}/[0-9]{4}/[0-9]{5}\\+\\+\\+" data-dojo-type="dijit/form/TextBox" data-dojo-props="disabled: true" />
+        </td>
+        -->
+    </tr>
+    <tr>
+        <td>
+            <label for="klant_voornaam">klant_voornaam</label><input type="text" name="klant_voornaam" data-dojo-type="dijit/form/TextBox" data-dojo-props="" />
+        </td>
+        <td>
+            <label for="klant_achternaam">klant_achternaam</label><input type="text" name="klant_achternaam" data-dojo-type="dijit/form/TextBox" data-dojo-props="" />
+        </td>
+        <!--! <td></td> -->
+    </tr>
+</table>
+
+<button type="submit" data-dojo-type="dijit/form/Button" data-dojo-props="type: 'submit', name: 'submit'">Zoek</button>
+<button type="reset" data-dojo-type="dijit/form/Button" data-dojo-props="type: 'reset', name: 'reset'">Reset</button>
+</form>
+<div id="response"></div>
+<!-- note: data-dojo-props removed
+     plugins:{menus:{rowMenu:'dataGridContextRowMenu', cellMenu:'dataGridContextCellMenu'}}, -->
+<table id="search_grid" name="customer_search_grid" class="datagrid" style="height:100%"
+    data-dojo-type="dojox/grid/DataGrid"
+    data-dojo-props="autoWidth: true,
+                     autoHeight: 6,
+                     rowSelector: '10px',
+                     loadingMessage: 'Loading grid...',
+                     noDataMessage: 'No data available',
+                     ">
+  <script type="dojo/on" data-dojo-event="rowclick" data-dojo-args="evt">viewRowData(evt);</script>
+  <thead>
+    <tr>
+        <th field="clang_id"         width="65px" formatter="mm_datagrid_formatters.formatRowPopup">clang_id</th>
+        <th field="klant_voornaam"   width="100px">klant_voornaam</th>
+        <th field="klant_achternaam" width="100px">klant_achternaam</th>
+        <th field="klant_email"      width="150px" formatter="mm_datagrid_formatters.formatMailLink">klant_email</th>
+        <th field="klant_straat"     width="150px">klant_straat</th>
+        <th field="klant_nummer"     width="50px">klant_nummer</th>
+        <th field="klant_postcode"   width="50px">klant_postcode</th>
+        <th field="klant_gemeente"   width="150px">klant_gemeente</th>
+        <th field="klant_telefoon"   width="90px">klant_telefoon</th>
+    </tr>
+  </thead>
+</table>

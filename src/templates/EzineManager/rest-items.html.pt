@@ -1,0 +1,86 @@
+<script>
+    require(["dojo/parser", "dijit/Editor", "dijit/_editor/plugins/LinkDialog", "dijit/_editor/plugins/ViewSource"]);
+</script>
+<form data-dojo-type="dijit/form/Form" id="newAuctionForm" class="manual-form" data-dojo-id="newAuctionForm"
+      tal:attributes="method python:'PUT' if Auction else 'POST';
+                      action python:'/'.join( ('/rest/Auction', str(Auction.cid)) ) if Auction else '/rest/Auction/0'">
+
+    <script type="dojo/on" data-dojo-event="submit" data-dojo-args="evt">
+    require(["dojo/request/xhr", "dojo/dom", "dojo/dom-construct", "dojo/query", "dojo/json", "dojo/on", "dojo/domReady!"],
+    function (xhr, dom, domConst, query, JSON, on) {
+        evt.preventDefault();
+        responseNode = query('#newAuctionForm .ajaxResponse')[0];
+        domConst.place("<p>Working...</p>", responseNode, "only");
+        var t = evt.target;
+        var method = dijit.byId('newAuctionForm').get('method');
+        var data = dijit.byId('newAuctionForm').get('value');
+        xhr(t.action, {
+            data: data,
+            method: method,
+            handleAs: "json"
+        })
+        .then(function (data) {
+            domConst.place("<p>Succes: " + data + "</p>", responseNode);
+            console.log(data);
+        }, function (err) {
+            domConst.place("<p>Failed! Error: " + err.response.data + "</p>", responseNode);
+            console.log(err);
+        });
+    });
+    </script>
+
+    <h2 tal:condition="not:Auction">Add New Auction</h2>
+    <h2 tal:condition="Auction">Update Auction: ${Auction.title}</h2>
+
+    <div class="dijitDialogPaneContentArea">
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="auction_title">title:</label></th>
+                    <td><input type="text" name="title" id="auction_title" required="true" data-dojo-type="dijit/form/ValidationTextBox" />
+                        <span class="fld-info">title</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="auction_url">url:</label></th>
+                    <td><input type="text" name="url" id="auction_url" required="true" data-dojo-type="dijit/form/ValidationTextBox" />
+                        <span class="fld-info">url</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="auction_image">afbeelding:</label></th>
+                    <td><input type="text" name="image" id="auction_image" required="true" data-dojo-type="dijit/form/ValidationTextBox" />
+                        <span class="fld-info">image</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="auction_prijs">prijs:</label></th>
+                    <td><input type="number" name="openprice" id="auction_openprice" required="true" data-dojo-type="dijit/form/NumberTextBox" />
+                        <span class="fld-info">prijs</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+                <tr>
+                    <th><label for="auction_text">text:</label></th>
+                    <td>
+                        <div name="auct_intro" id="auction_text" required="true" data-dojo-type="dijit/Editor" data-dojo-props="plugins:['bold','italic','|','createLink', 'viewsource']" style="width: 500px; height: 200px; border: 1px solid #d3d3d3;"><p>Veiling <b>tekst</b>, eventueel met <a href="http://www.biedmee.be">link</a>...</p></div>
+                        <span class="fld-info">Tekst: (HTML, let: url's in deze text worden NIET automatisch voorzien van UTM-codes)</span>
+                    </td>
+                    <td class="fld-info"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ajaxResponse"></div>
+
+    <div class="dijitDialogPaneActionBar">
+        <button data-dojo-type="dijit/form/Button" type="submit">Save</button>
+        <button data-dojo-type="dijit/form/Button" type="button" data-dojo-props="onClick:function(){mm_dialog_newAuctionForm.hide();}">Cancel</button>
+    </div>
+
+
+</form>

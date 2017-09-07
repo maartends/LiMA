@@ -1,0 +1,8 @@
+<metal:main use-macro="load: ../auctionmanager.html.pt">
+
+    <div metal:fill-slot="content" id="center-pane" class="layout-pane auction" style="">
+        <h2>Auctions</h2>
+        <p>Maak een nieuwe veiling aan, of editeer een bestaande veiling.</p>
+    </div><!-- center-pane -->
+
+</metal:main>

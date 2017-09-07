@@ -1,0 +1,5 @@
+<div id="flash" tal:condition="request.session.peek_flash()">
+    <div class="flash-message" tal:repeat="message request.session.pop_flash()" tal:content="message">
+        <a class="close" href="#">×</a>
+    </div>
+</div>

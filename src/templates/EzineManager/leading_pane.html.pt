@@ -1,0 +1,86 @@
+<script type="text/javascript">
+    require(["dojo/dnd/Source"])
+</script>
+<!-- Left Acc Container -->
+<div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="region:'leading', splitter:true, minSize:20"
+        style="width: 230px;" id="leftAccordion">
+
+    <!-- Ezines Acc -->
+    <div
+            id="leftColEzines" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'left', splitter: true, title:'Ezines'">
+
+        <button data-dojo-type="dijit/form/Button" type="button">New...
+            <script type="dojo/on" data-dojo-event="click" data-dojo-args="evt">
+                mm_dialog_newEzineForm.show();
+            </script>
+        </button>
+
+        <ul>
+            <li tal:repeat="item Ezines">
+                <a href="/EzineManager/ezine/${ item.cid }/view" title="${ item.name } (Subject: ${ item.subject } | Items: ${len(item.ezine_items)})">${ item.name }</a><br />
+            </li>
+        </ul>
+        <!--!
+        <div id="ezineTree" data-dojo-id="ezineTree" data-dojo-type="dijit/Tree" data-dojo-props="
+                    model:ezineModel,
+                    showRoot: true,
+                    openOnClick:true,
+                "></div>
+        <button onclick="ezineTree.collapseAll();">Collapse</button>
+        <button onclick="ezineTree.expandAll();">Expand</button>
+        -->
+    </div>
+
+    <!-- Auctions Acc -->
+    <div
+            id="leftColAuctions" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'left', splitter: true, title:'Auctions'">
+
+            <ul data-dojo-type="dojo/dnd/Source" data-dojo-id="AuctDnDSource" id="AuctDnDSource" data-dojo-props="copyOnly: true, selfAccept: false">
+                <li class="dojoDndItem" tal:repeat="item Auctions" data-cid="${ item.cid }" style="resize: none; overflow:hidden; white-space:nowrap; text-overflow: ellipsis;">
+                    <span title="${ item.title }" tal:content="item.__unicode__()">ID: title</span>
+                </li>
+            </ul>
+
+    </div>
+
+    <!--! Shortcuts Acc
+    <div
+            id="leftColShortcuts" class="edgePanel"
+            data-dojo-type="dijit/layout/ContentPane"
+            data-dojo-props="region: 'left', splitter: true, title:'Shortcuts (wordt vernieuwd)'">
+
+        <h4>Deprecated!</h4>
+
+        <p><a href="/admin" target="_blank">Admin interface</a></p>
+        <p><a href="/about" class="mm-dialog" title="About">About</a></p>
+        <ol>
+            <li>Vakantie.be Ezines:
+                <ul>
+                    <li><a href="/admin/VakBeEzine/new" target="_blank">Nieuw</a></li>
+                    <li><a href="/admin/Offer/new" target="_blank">Nieuwe aanbieding</a></li>
+                    <li><a href="/admin/Auction/new" target="_blank">Nieuw contentblok</a></li>
+                </ul>
+            </li>
+            <li>Veilingen Ezines:
+                <ul>
+                    <li><a href="/admin/AuctionEzine/new" target="_blank">Nieuw</a></li>
+                    <li><a href="/admin/Auction/new" target="_blank">Nieuwe veiling</a></li>
+                    <li><a href="/admin/Auction/new" target="_blank">Nieuw contentblok</a></li>
+                </ul>
+            </li>
+            <li>CRUD:
+                <ul>
+                    <li><a href="/EzineManager/crud">Index</a></li>
+                    <li><a href="/EzineManager/crud/Auction">Nieuwe veiling</a></li>
+                </ul>
+            </li>
+        </ol>
+
+    </div>
+    -->
+
+</div><!-- Left Acc Cont -->

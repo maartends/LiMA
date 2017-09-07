@@ -66,7 +66,7 @@
 
 0.0.10
 ------
-- added url-selectable tabs (eg: http://devel.lima.malimedia.be/Dashboard/#tab_topauctions)
+- added url-selectable tabs
 - added totals to topacutions grid (prel)
 - year, month and week grids adapted
 

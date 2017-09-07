@@ -1,0 +1,17 @@
+<metal:main use-macro="load: login-layout.html.pt">
+<div metal:fill-slot="content" id="login">
+    <h2>Login</h2><span class="error" tal:content="message" />
+    <form action="${ url }" method="post">
+      <input type="hidden" name="came_from" value="${ came_from }"/>
+      <label for="login">Username</label>
+      <input type="text" name="login" placeholder="login" value="${ login }" style="width: 150px" autofocus /><br/>
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="paswoord" value="${ password }" style="width: 150px" /><br/>
+      <button type="submit" name="form.submitted" >Log in</button>
+<!--
+      <button type="button" style="float:left" id="slideLeftButton">Slide</button>
+      <button id="signin">Persona-login</button>
+-->
+    </form>
+</div>
+</metal:main>

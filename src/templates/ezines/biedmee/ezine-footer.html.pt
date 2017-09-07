@@ -1,0 +1,99 @@
+<tr>
+  <td style="padding-bottom:10px;">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr><!-- footer top-row -->
+        <td style="background: #7ac501; background-image: -webkit-linear-gradient(top, #7ac501, #5e9e0f); background-image: -moz-linear-gradient(top, #7ac501, #5e9e0f); background-image: -ms-linear-gradient(top, #7ac501, #5e9e0f); background-image: -o-linear-gradient(top, #7ac501, #5e9e0f); background-image: linear-gradient(to bottom, #7ac501, #5e9e0f); border-bottom: solid 5px #4d820b; padding:0;">
+            <table width="60%" border="0" cellspacing="0" cellpadding="0" class="table_column" style="font-size:13px; font-weight:bold">
+            <tr>
+              <td style="text-align:center">
+                  <a title="Topveilingen" tal:attributes="href templateFilters.append_utmcodes('http://biedmee.be/topveiling', Ezine.name)"
+                     style="text-decoration:none; color:#fff; text-transform: uppercase">Topveilingen</a>
+              </td>
+              <td style="text-align:center">
+                  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/f-row1-sep.png" alt="" title="" style="display:block"/>
+              </td>
+              <td style="text-align:center">
+                  <a title="Vakanties" tal:attributes="href templateFilters.append_utmcodes('http://biedmee.be/vakanties', Ezine.name)"
+                     style="text-decoration:none; color:#fff; text-transform: uppercase">Vakanties</a>
+              </td>
+              <td style="text-align:center">
+                  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/f-row1-sep.png" alt="" title="" style="display:block"/>
+              </td>
+              <td style="text-align:center">
+                  <a title="Vrije tijd" tal:attributes="href templateFilters.append_utmcodes('http://biedmee.be/vrije-tijd', Ezine.name)"
+                     style="text-decoration:none; color:#fff; text-transform: uppercase" >Vrije tijd</a>
+              </td>
+              <td style="text-align:center" class="hideBar">
+                  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/f-row1-sep.png" alt="" title="" style="display:block"/>
+              </td>
+            </tr>
+            </table>
+        </td>
+      </tr>
+      <tr><!-- footer middle-row -->
+        <td style="background:#a89991; padding:15px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td style="text-align:center; font-size:13px; color:#fff; padding-bottom:15px;"><strong>Heb je vragen of opmerkingen? Neem dan contact op via:</strong></td>
+            </tr>
+            <tr>
+              <td align="center" style="text-align:center">
+                  <a tal:attributes="href templateFilters.append_utmcodes('http://www.facebook.com/BiedMee', Ezine.name)" style="padding-bottom:10px;">
+                      <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/f-btn-facebook.png" alt="Facebook" title="Facebook" />
+                  </a>
+                  <a tal:attributes="href templateFilters.append_utmcodes('http://twitter.com/biedmeeBE', Ezine.name)" style="padding-bottom:10px;">
+                      <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/f-btn-twitter.png" alt="Twitter" title="Twitter" />
+                  </a>
+                  <a href="mailto:veilingen@biedmee.be" style="padding-bottom:10px;">
+                      <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/f-btn-email.png" alt="Email" title="Email" />
+                  </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align:center; font-size:13px; color:#fff; padding-top:5px; font-weight:bold; vertical-align:top; line-height:35px;">of bel ons via <span class="vcard"><span class="tel">+32 (0)78 48 09 00</span></span> (maandag - vrijdag: 9u30 - 17u30) <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/phone_brown.png" alt="Telefoon" title="" style="vertical-align:top" /></td>
+            </tr>
+            </table>
+        </td>
+      </tr>
+      <tr><!-- footer bottom-row -->
+
+        <td tal:condition="mailer=='clang'" style="background:#f0ecea; font-size:12px; text-align:center; padding:10px; vertical-align:top">
+          <table width="35%" border="0" cellspacing="0" cellpadding="0" align="left" class="table_column">
+            <tr>
+              <td><span><a tal:attributes="href templateFilters.append_utmcodes('''http://account.biedmee.be/?id={{customer field='id'}}&email={{customer field='emailaddress'}}''', Ezine.name)" target="_blank" style="color:#4d433f; text-decoration:none">
+                  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/clock-icon.png" alt="" style="vertical-align:top" /> &nbsp; <span style="line-height:25px;">Frequentie wijzigen </span></a></span>
+              </td>
+            </tr>
+          </table>
+          <table width="35%" border="0" cellspacing="0" cellpadding="0" align="left" class="table_column">
+            <tr>
+              <td><span class="btm_links"><a tal:attributes="href templateFilters.append_utmcodes('''http://account.biedmee.be/?id={{customer field='id'}}&email={{customer field='emailaddress'}}''', Ezine.name)" target="_blank" style="color:#4d433f; text-decoration:none">
+                  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/profile-icon.png" alt="" style="vertical-align:top; margin-top:3px;" /> &nbsp; <span style="line-height:25px;">Profiel Wijzigen </span></a></span>
+              </td>
+            </tr>
+          </table>
+          <table width="25%" border="0" cellspacing="0" cellpadding="0" align="right" class="table_column">
+            <tr>
+              <td style="text-align:center"><span class="btm_links"><a tal:attributes="href templateFilters.append_utmcodes('''http://account.biedmee.be/unsubscribe?id={{customer field='id'}}&email={{customer field='emailaddress'}}''', Ezine.name)" target="_blank" style="color:#4d433f; text-decoration:none">
+                  <img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/bin-icon.png" alt="" style="vertical-align:top; margin-top:-2px;" /> &nbsp; <span style="line-height:25px;">Uitschrijven </span></a></span>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td tal:condition="mailer=='mailjet'" style="background:#f0ecea; font-size:12px; text-align:center; padding:10px; vertical-align:top">
+          <!-- [[UNSUB_LINK_NL]] -->
+          <table width="35%" border="0" cellspacing="0" cellpadding="0" align="left" class="table_column">
+            <tr>
+              <td><span><a href="[[UNSUB_LINK_NL]]" target="_blank" style="color:#4d433f; text-decoration:none"><img src="https://static-bdm.s3.eu-central-1.amazonaws.com/ezine/img/bin-icon.png" alt="" style="vertical-align:top; margin-top:-2px;" /> &nbsp; <span style="line-height:25px;">Uitschrijven </span></a></span> </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+      <tr><!-- footer mmg-row -->
+        <td style="background:#5f5148; color:#fff; text-align:right; font-size:11px; padding:5px;">Biedmee.be is een onderdeel van <a href="http://www.malimedia.be?utm_medium=email&utm_source=e-zine" style="color:#fff; text-decoration:none"> Mali Media Group</a></td>
+      </tr>
+    </table>
+  </td>
+</tr>

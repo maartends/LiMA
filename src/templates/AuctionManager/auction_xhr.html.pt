@@ -1,0 +1,6 @@
+<h1>Veiling_id: ${auction.veiling_id}</h1>
+    <table>
+      <tr tal:repeat="(k,v) auction.items()">
+        <td tal:content="k" style="font-weight: bold;">Column name</td><td tal:content="v">Value</td>
+      </tr>
+    </table>
