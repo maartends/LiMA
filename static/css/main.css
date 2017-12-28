@@ -1,0 +1,549 @@
+/*
+ * lima/static/css/main.css
+ */
+html {height: 100%; width: 100%;}
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #e7f4fc;
+    font-size: 0.9em;
+}
+.middleheight { height: 95%; }
+body.backend {
+/*
+    margin: 5px 50px;
+*/
+}
+body, p, ul, ol, li, div, span, label, select, input {
+    font-family: Arial, sans-serif;
+    list-style: inside none;
+    padding: 0;
+    margin: 0;
+}
+a  {
+    text-decoration: none;
+}
+h1, h2, h3, .ui-dialog-title {
+    font-family: 'Droid Sans', Arial, sans-serif;
+}
+header, #dijit-app-header {
+    display: block;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    min-height: 36px !important;
+    z-index: 300 !important;
+    border: none !important;
+}
+#app-header {
+    position: relative;
+}
+header {
+    font-size: 0.8em;
+    background-color: rgb(0, 133, 217);
+    color: #ffffff;
+}
+header .txt {
+    padding: 0 5px;
+    margin-top: 5px;
+}
+.ui-widget-header {
+    border: 1px solid #aaaaaa;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(167,199,220,1)), color-stop(100%,rgba(133,178,211,1)));
+    background: linear-gradient(to bottom, rgba(167,199,220,1) 0%,rgba(133,178,211,1) 100%);
+}
+header > #app-header > * {
+    float: left;
+}
+header > #app-header > ul > li {
+    float: left;
+}
+header > #app-header > #rightlinks {
+    float: right;
+}
+header a, header p, header h1 {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+}
+header h1 {
+    font-size: 1.4em;
+    margin: 0;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    line-height: 1em;
+}
+header p {margin: 0}
+header h1 > a {
+    text-decoration: none;
+}
+header #menu-bar {
+    float: left;
+    margin-left: 60px;
+}
+header #menu-bar li:hover {
+    background-color: #333333;
+}
+#main-area {
+
+}
+#body {
+    position: relative;
+    top: 60px;
+    margin: 0 50px 0 5px;
+}
+#app-header{
+    margin: 0 30px 0 30px;
+}
+.layout-pane {
+    margin: 0px;
+    visibility: visible;
+    display: block;
+    position: absolute;
+    z-index: 0;
+/*
+    border: 1px solid #BBB;
+*/
+    overflow: auto;
+}
+#left-pane {
+    right: auto;
+    width: 200px;
+    display: block;
+    left: 0px;
+    z-index: 0;
+}
+.dijitMenu .dijitMenuItem .dijitMenuItemLabel,
+.dijitTreeContainer span,
+.dijitTreeContainer p,
+.dijitTreeContainer a,
+p, td, th, ul, ol, li, label, input, select, button {
+    font-size: 12px;
+}
+#center-pane {
+/*
+    width: 650px;
+*/
+    width: 95%;
+    overflow: hidden;
+}
+#right-pane {
+    left: 940px;
+    right: 0px;
+    width: 400px;
+}
+
+/* =============================================================================
+   DnD
+   ========================================================================== */
+.mm_dojoDndTarget {
+    border: 1px #ccc solid;
+}
+/* =============================================================================
+   Dialogs
+   ========================================================================== */
+.dojoxDialog .dojoxDialogPaneContent {
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.dojoxDialog .dojoxDialogPaneContent::-webkit-scrollbar,
+.scrollable::-webkit-scrollbar,
+div::-webkit-scrollbar {
+    width: 12px;
+    margin-left: 2px;
+}
+.dojoxDialog .dojoxDialogPaneContent:hover::-webkit-scrollbar,
+.scrollable:hover::-webkit-scrollbar,
+div:hover::-webkit-scrollbar {
+    width: 16px;
+}
+.dojoxDialog .dojoxDialogPaneContent::-webkit-scrollbar-thumb,
+.scrollable::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+    width: 12px;
+}
+.dojoxDialog .dojoxDialogPaneContent:hover::-webkit-scrollbar-thumb,
+.scrollable:hover::-webkit-scrollbar-thumb,
+div:hover::-webkit-scrollbar-thumb {
+    width: 16px;
+}
+.dojoxDialog .dojoxDialogPaneContent::-webkit-scrollbar-thumb,
+.scrollable::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+    width: 12px;
+    background-color: rgba(0, 0, 0, .2);
+    background-clip: padding-box;
+    border: solid transparent;
+    min-height: 28px;
+    padding: 100px 0 0;
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1),inset 0 -1px 0 rgba(0, 0, 0, .07);
+    border-width: 1px 1px 1px 6px;
+}
+.dojoxDialog .dojoxDialogPaneContent::-webkit-scrollbar-thumb:hover,
+.scrollable::-webkit-scrollbar-thumb:hover,
+div::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, .4);
+}
+.dojoxDialog .dojoxDialogPaneContent::-webkit-scrollbar-track,
+.scrollable::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+    width: 16px;
+    background-clip: padding-box;
+    border: 1px solid lightGrey;
+    border-width: 0;
+}
+/* =============================================================================
+   Iframe
+   ========================================================================== */
+#center-pane iframe {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+#ezine-menu-bar {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px;
+}
+#ezine-menu-bar li, header > #app-header > #rightlinks li {
+    float: left;
+    margin-right: 10px;
+}
+#ezine-menu-bar a {
+    color: rgb(250,250,250);
+}
+#center-pane.ezine:hover #ezine-menu-bar {
+    display: block;
+}
+header ul, footer ul, header ol, footer ol {
+    list-style: none;
+}
+footer li {
+    float: left;
+    margin: 2px 5px;
+}
+footer {
+    clear: both;
+    border-top: 1px solid #d9d9d9;
+    margin: 5px 0 5px 0;
+}
+footer li a {
+
+}
+
+#manual {
+    float: right;
+    width: 50%;
+    margin: 0 20px;
+}
+
+#inProgress, header #menu-bar a:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+#inProgress {
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    background-image: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    z-index: 1000000;
+    display: none;
+    background-position: initial initial;
+    background-repeat: initial initial;
+}
+
+form ul, form ol, form li, #links ul, #links ol, #links li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, #inProgress, header #menu-bar ul li ul li a:hover, .ui-widget-header {
+    color: rgb(39, 54, 91);
+}
+h1, h2, h3, h4 {
+    font-weight: bold;
+    margin: 0.4em 0 0.2em 0;
+}
+
+h1 {
+    line-height: 2em;
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.3em;
+    line-height: 1.3em;
+}
+h3 {
+    font-size: 1.2em;
+    line-height: 1.2em;
+}
+
+p, td, ul, ol, li, label, input, select {
+    color: #71706e;
+}
+
+p {margin: 0.8em 0 0.8em 0;}
+
+a {
+    color: rgb(0, 133, 217);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a[disabled="true"] {
+    color: rgb(191, 191, 191);
+}
+
+/* =============================================================================
+   Forms
+   ========================================================================== */
+
+form  {
+}
+
+fieldset  {
+    width: 100%;
+    position: relative;
+}
+
+legend, button {
+}
+
+legend {
+    margin: 0;
+    display: block;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+    position: relative;
+    -webkit-border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.25);
+/*
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+*/
+}
+
+legend > span {
+    position: static;
+    left: 0;
+    top: 5px;
+    width: 508px;
+    line-height: 1.7em;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: block;
+}
+
+button {
+}
+
+form table, form > fieldset > ul  {
+    padding: 10px 5px 10px 50px;
+}
+
+li.field {
+    margin: 5px 0;
+    height: 30px;
+    line-height: 35px;
+}
+.manual-form th {
+    vertical-align: top;
+    text-align: right;
+    padding-right: 5px;
+}
+.manual-form td {
+    padding-bottom: 5px;
+}
+.manual-form .fld-info {
+    font-size: 0.8em;
+    font-style: italic;
+}
+.manual-form span.fld-info {
+    display: block;
+}
+.manual-form label {
+    width: auto;
+}
+
+/* form elements */
+
+/*
+input[type="text"], input[type="email"], input[type="password"] {
+    border: 1px solid rgb(219, 216, 210);
+    width: 220px;
+    margin: 5px 0;
+    padding: 4px 2px;
+    color: #333333;
+    font-size: 1.2em;
+}
+*/
+
+form ul {
+    list-style: none;
+    padding-left: 0;
+}
+form ul ul, form ul ul > li {
+    display: inline;
+}
+form .field > label {
+    display: inline-block;
+    width: 100px;
+}
+
+/* =============================================================================
+   Flash
+   ========================================================================== */
+
+.close {
+  float: right;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 13.5px;
+  text-shadow: 0 1px 0 #ffffff;
+  filter: alpha(opacity=25);
+  -khtml-opacity: 0.25;
+  -moz-opacity: 0.25;
+  opacity: 0.25;
+}
+.close:hover {
+  color: #000000;
+  text-decoration: none;
+  filter: alpha(opacity=40);
+  -khtml-opacity: 0.4;
+  -moz-opacity: 0.4;
+  opacity: 0.4;
+}
+#flash {
+    padding: 20px;
+    width: 100%;
+}
+.flash-message {
+  position: relative;
+  padding: 7px 15px;
+  margin-bottom: 18px;
+  color: #404040;
+  background-color: #eedc94;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fceec1), to(#eedc94));
+  background-image: -moz-linear-gradient(top, #fceec1, #eedc94);
+  background-image: -ms-linear-gradient(top, #fceec1, #eedc94);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fceec1), color-stop(100%, #eedc94));
+  background-image: -webkit-linear-gradient(top, #fceec1, #eedc94);
+  background-image: -o-linear-gradient(top, #fceec1, #eedc94);
+  background-image: linear-gradient(top, #fceec1, #eedc94);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceec1', endColorstr='#eedc94', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: #eedc94 #eedc94 #e4c652;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.frontend #flash {
+    position: absolute;
+    top: -50px;
+    left: 0;
+}
+.backend #flash {
+    position: absolute;
+    width: 70%;
+    top: 10px;
+    left: 20%;
+}
+
+
+/* =============================================================================
+   Error messages
+   ========================================================================== */
+
+.error .error {
+  display: inline;
+  font-size: 0.8em;
+  color: rgb(254, 87, 161);
+  margin: 0 0 5px 0;
+}
+
+/* =============================================================================
+   Leading Edge Pane Common
+   ========================================================================== */
+
+#lepc li > a {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  vertical-align: middle;
+  padding: 5px 0;
+}
+#lepc li > a:hover {
+  background-color: rgba(0, 133, 217, 0.1);
+}
+#lepc li {
+  text-align: center;
+  margin-top: 10px;
+}
+#lepc li span {
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: auto;
+}
+#lepc_dashboard span {
+  background: no-repeat url(../img/mm-ribbon-nav-common.png) 0 -231px;
+}
+#lepc_auctionmanager span {
+  background: no-repeat url(../img/mm-ribbon-nav-common.png) 0 -1023px;
+}
+#lepc_ezinemanager span {
+  background: no-repeat url(../img/mm-ribbon-nav-common.png) 0 -957px;
+}
+#lepc_ordermanager span {
+  background: no-repeat url(../img/mm-ribbon-nav-common.png) 0 -758px;
+}
+#lepc_customermanager span {
+  background: no-repeat url(../img/mm-ribbon-nav-common.png) 0 -858px;
+}
+#lepc_templatemanager span {
+  background: no-repeat url(../img/mm-ribbon-nav-common.png) 0 -495px;
+}
+
+
+/* =============================================================================
+   Datagrids
+   ========================================================================== */
+
+.datagrid thead th,
+.datagrid tfoot th {
+    font-size: 0.85em;
+}
+.datagrid tfoot th {
+    text-align: right;
+}
+.datagrid thead th {
+    text-align: left;
+}

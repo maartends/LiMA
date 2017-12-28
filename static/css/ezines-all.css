@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.txt3 {
+	text-decoration: none;
+	color: white;
+	font-size: 11px;
+	line-height: 10pt;
+}
+/*---------------OUTLOOK QUIRKS---------------*/
+.img-holder-outlook {
+	margin: 0;
+	padding: 0;
+}
+.vertical-spacer {height:10px;}
+.horizontal-spacer {width:10px;}

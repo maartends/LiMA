@@ -1,0 +1,22 @@
+/*
+ * Dojo
+ */
+.dijitDialog, .dijitDialogTitleBar {
+    border-radius: 5px 5px 0 0 !important;
+    -webkit-border-radius: 5px 5px 0 0 !important;
+    -moz-border-radius: 5px 5px 0 0 !important;
+}
+.dijitDialogPaneContent {
+    overflow: auto !important;
+}
+.dijitDialogPaneContent input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 1em;
+    padding: 0;
+}
+.dijitDialogTitleBar {
+}
+.dijitDialogTitle {
+}
+header .dijitMenuBar {
+    color: #E3006A;
+}

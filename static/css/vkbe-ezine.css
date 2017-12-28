@@ -1,0 +1,227 @@
+@charset "UTF-8";
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+center {
+	width: 100%;
+	height: 100%;
+}
+#online {
+	font-size: 9px;
+	line-height: 11px;
+	color: #A0A0A4;
+	text-align: right;
+}
+.outer {
+	margin-left: auto;
+	margin-right: auto;
+}
+a {
+	color: #E3006A;
+	text-decoration: none
+}
+ul, ol {
+	margin-top:4px;
+	margin-bottom:5px;
+	color: #4c423d;
+	font-size: 11px;
+	line-height: 12pt;
+}
+
+td.edito p {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:4px;
+	margin-bottom:5px;
+	text-indent:10px;
+	color: #4c423d;
+	font-size: 11px;
+	line-height: 11pt;
+}
+
+td.edito a {
+	color:#e3006a;
+	font-weight:bold;
+}
+
+td.edito-blauw p {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:4px;
+	margin-bottom:5px;
+	text-indent:10px;
+	color: #4c423d;
+	font-size: 11px;
+	line-height: 12pt;
+}
+
+td.edito-blauw a {
+	color:#e3006a;
+	font-weight:bold;
+}
+
+td.edito-groen p {
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:4px;
+	margin-bottom:5px;
+	text-indent:10px;
+	color: #4c423d;
+	font-size: 11px;
+	line-height: 12pt;
+}
+td.edito-groen a {
+	color: #e3006a;
+	font-weight:bold;
+}
+img {border: none}
+h2 {text-align:left}
+a, p, h1, h2, h4, h4, span {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+img {
+	border: none;
+}
+table.content-item {
+	margin-left: auto;
+	margin-right: auto;
+	/*background: #efebe9; proberen weglaten (voor border-radius achtergrond): komt goed in Hotmail*/
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.content-title, .content-item > tbody > tr:first-child {
+    border-radius: 6px 6px 0px 0px;
+    -moz-border-radius: 6px 6px 0px 0px;
+    -webkit-border-radius: 6px 6px 0px 0px;
+}
+.content-item > tbody > tr:first-child {
+
+}
+.content-item > tbody > tr:first-child h2 {
+    font-size: 18px;
+    margin: 5px 2px;
+    line-height: 1.1em;
+}
+h1 {
+ display: none;
+	font-size:9px;
+}
+td.content-title {
+    padding: 2px 5px;
+    background-color: #E3006A;
+}
+td.num-price, td.num-price-bottom {
+    background-color: #64554C;
+}
+td.num-price > table > tbody > tr:last-child {
+    background-color: #FFFFFF; /* reset bg color to white for rounded borders */
+}
+td.num-price-bottom {
+    font-size: 0px;
+    line-height: 5px;
+    height: 5px;
+    border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+}
+td.num {
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    height: 25px;
+    width: 25px;
+    background-color: White;
+}
+hr {
+    height:3px;
+    background-color: #64554C;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.content-title h2, .content-title h2 a, .aanbiedingen h2, .aanbiedingen h2 a {
+	color: #ffffff !important; /* !important voor Hotmail */
+}
+.footer h2, .footer h2 a {
+	color: #bbb1ac !important;
+	font-size: 18px;
+	margin: 5px 2px;
+}
+table.middletitle {
+	padding: 2px 5px;
+	background-color: rgb(100, 85, 76);
+	margin: 3px auto 0px auto;
+}
+.middletitle h3, .middletitle h3 a {
+	color: #FFFFFF !important;
+	font-size: 16px;
+	margin: 3px 0px 0px 0px;
+	padding: 2px 10px;
+	text-align: left;
+}
+h4, h4 a {
+	color: #e3006a !important; /* !important voor Hotmail */
+	font-size: 13px;
+	font-weight: bold;
+	color: #e3006a;
+	margin: 0px 0px;
+}
+.content-item h4, .content-item h4 a {
+	font-size: 12px;
+}
+.content-item > tbody > tr:last-child, .three-sub {
+	background: #64554c;
+	height: 25px;
+}
+.content-item > tbody > tr:last-child a, .three-sub a {
+	font-weight: bold;
+	font-size: 12px;
+	color: #ffffff;
+}
+.content-item > tbody > tr:first-child > td, .one-title > td {
+	padding: 2px 5px;
+}
+strong.content-subtitle {
+	font-weight: bold;
+	font-size: 11px;
+	line-height: 11pt;
+}
+.content-item > tbody > tr:nth-child(2) a, .two-content a {
+	font-size: 11px;
+	color: #e3006a;
+}
+.content-item > tbody > tr:nth-child(2) span.price, .two-content span.price {
+	font-size: 20px;
+	font-weight: bold;
+}
+.content-item > tbody > tr:nth-child(2), .two-content {
+	font-size: 11px;
+	font-weight: normal;
+    background: #efebe9;
+}
+.content-item > tbody > tr:nth-child(2) p, .two-content p {
+	margin-top: 4px;
+	margin-bottom: 5px;
+	font-size: 11px;
+	text-indent: 10px;
+	line-height: 12pt;
+	color: #4c423d;
+}
+.content-price {
+	background: #ffffff;
+}
+/*---------------DEFAULT WIDTHS---------------*/
+/* c2 en c4 commented out for image resizing in content */
+.c1 {width: 10px}
+/*
+.c2 {width: 380px}
+*/
+.c3 {width: 43px}
+/*
+.c4 {width: 167px}
+*/
+.c4a {width: 87px; text-align:center;}
+.c4b {width: 80px; text-align:center;}
+
+del {
+	font-size:12px;
+	display: block;
+}

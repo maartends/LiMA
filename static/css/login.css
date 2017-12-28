@@ -1,0 +1,50 @@
+/*
+ * lima/static/css/login.css
+ */
+#login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: auto;
+    width: 300px;
+    margin-left: -150px;
+    margin-top: -200px;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 4px;
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.23,  #d1e3fd),
+        color-stop(1,  #dbe8fb)
+    );
+    background-image: -moz-linear-gradient(
+        center bottom,
+        #d1e3fd 23%,
+        #dbe8fb 100%
+    );
+    background-color: #d1e3fd;
+    -moz-border-radius: 8px;
+    -moz-box-shadow: 0px 2px 6px #666;
+    box-shadow: 0px 2px 6px #666;
+    -webkit-box-shadow: 0px 2px 6px #666;
+}
+label {
+    display: inline-block;
+    width: 70px;
+}
+input {
+    border: none;
+}
+/* =============================================================================
+   Error messages
+   ========================================================================== */
+
+.error {
+  display: inline;
+  font-size: 0.8em;
+  color: rgb(254, 87, 161);
+  margin: 0 0 5px 0;
+}

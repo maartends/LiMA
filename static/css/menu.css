@@ -1,0 +1,17 @@
+/*
+ * http://cssmenumaker.com/
+ */
+#menu-bar{ height:37px; display:block; padding:0; margin: 0;}
+#menu-bar > ul {list-style:inside none; padding:0; margin:0; float: left;}
+#menu-bar > ul > li {list-style:inside none; padding:0; margin:0; float:left; display:block; position:relative;}
+#menu-bar > ul > li > a{ outline:none; display:block; position:relative; padding:15px 20px 9px 20px; text-align:center; text-decoration:none; margin-top: 3px;}
+#menu-bar ul li.has-sub:hover > a:after{top:0; bottom:0;}
+#menu-bar > ul > li.has-sub:hover > a:before{top:23px;}
+#menu-bar ul li.has-sub:hover > a{background:#3f3f3f; border-color:#3f3f3f; z-index:999; }
+#menu-bar ul li.has-sub:hover > ul, #menu-bar ul li.has-sub:hover > div{display:block;}
+#menu-bar ul li.has-sub > a:hover{background:#3f3f3f; border-color:#3f3f3f;}
+#menu-bar ul li > ul, #menu-bar ul li > div{ display:none; width:auto; position:absolute; top:30px; padding:10px 0; background:#3f3f3f; z-index:999; min-width: 150px;}
+#menu-bar ul li > ul li{display:block; list-style:inside none; padding:0; margin:0; position:relative;}
+#menu-bar ul li > ul li a{ outline:none; display:block; position:relative; margin:0; padding:4px 10px; color:#fff; text-decoration:none;}
+#menu-bar > ul > li > a:after{border-color:#444;}
+#menu-bar > ul > li > a:hover{background:#111;}
